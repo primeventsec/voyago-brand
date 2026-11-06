@@ -60,23 +60,26 @@ brand/
 
 ---
 
-## Está publicado aquí (público, sin login)
-
-| Qué | URL |
-|---|---|
-| **Showcase visual** (todo el sistema en una página) | https://files.catbox.moe/su2mnl.html |
-| **AI PACK** — brief + prompts + guía en un solo texto | https://files.catbox.moe/d9831t.txt |
-| **Dashboard mockup** (navegable) | https://files.catbox.moe/z18tor.html |
-| **Guía de marca PDF** | https://files.catbox.moe/uyxqsw.pdf |
-| **Dashboard render** (PNG 1440px) | https://files.catbox.moe/qfse7f.png |
-| **Paquete completo** (zip, 45 archivos) | https://files.catbox.moe/v4t45e.zip |
-
-Pasa la URL del **AI PACK** a cualquier IA que no pueda leer archivos: es texto plano, 25 KB, con todos los HEX y reglas dentro.
-
 
 ---
 
-## Cómo publicarlo en GitHub (recomendado a mediano plazo)
+## Publicado
+
+| Qué | URL |
+|---|---|
+| **Repositorio** | https://github.com/primeventsec/voyago-brand |
+| **Brief para IA (raw)** | https://raw.githubusercontent.com/primeventsec/voyago-brand/main/AI-BRIEF.md |
+| **Brief para IA (CDN con CORS)** | https://cdn.jsdelivr.net/gh/primeventsec/voyago-brand@main/AI-BRIEF.md |
+| **AI PACK completo** | https://cdn.jsdelivr.net/gh/primeventsec/voyago-brand@main/VOYAGO-AI-PACK.md |
+| **Tokens** | https://cdn.jsdelivr.net/gh/primeventsec/voyago-brand@main/tokens/colors.json |
+| **Guía PDF** | https://raw.githubusercontent.com/primeventsec/voyago-brand/main/VOYAGO-Guidelines-v1.0.pdf |
+
+Para que una IA lea todo el sistema, basta con darle la URL del repositorio y decirle
+que empiece por `AI-BRIEF.md`. Si la herramienta necesita una URL de texto directa, usar jsDelivr.
+
+---
+
+## Cómo se publicó
 
 ```bash
 cd brand
