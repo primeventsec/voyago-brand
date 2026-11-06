@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- VOYAGO Logo Concept 1: "Ecuador Horizon" -->
+  <!-- Geometric representation of the equatorial line crossing a horizon -->
+  <!-- Primary color: #2563eb (primary-600) -->
+  <!-- Secondary: #16a34a (secondary-600) -->
+  <!-- Accent: #f97316 (accent-500) -->
+
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#1e40af" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="earthGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#15803d" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="sunGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle (optional, for avatar usage) -->
+  <circle cx="100" cy="100" r="96" fill="none" stroke="url(#skyGradient)" stroke-width="2"/>
+
+  <!-- Sky area (upper portion) -->
+  <path d="M20 100 Q100 40 180 100 L180 20 L20 20 Z" fill="url(#skyGradient)" opacity="0.9"/>
+
+  <!-- Equatorial line (the core concept) -->
+  <line x1="20" y1="100" x2="180" y2="100" stroke="#f97316" stroke-width="4" stroke-linecap="round">
+    <animate attributeName="stroke-dashoffset" from="160" to="0" dur="2s" fill="freeze"/>
+  </line>
+
+  <!-- Sun on the equator line -->
+  <circle cx="100" cy="100" r="24" fill="url(#sunGradient)">
+    <animate attributeName="r" from="0" to="24" dur="1.5s" begin="0.5s" fill="freeze"/>
+  </circle>
+
+  <!-- Sun rays -->
+  <g stroke="#f97316" stroke-width="2" stroke-linecap="round" opacity="0.7">
+    <line x1="100" y1="68" x2="100" y2="56"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="100" y1="132" x2="100" y2="144"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="68" y1="100" x2="56" y2="100"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="132" y1="100" x2="144" y2="100"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="76" y1="76" x2="66" y2="66"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="124" y1="76" x2="134" y2="66"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="76" y1="124" x2="66" y2="134"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="124" y1="124" x2="134" y2="134"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+  </g>
+
+  <!-- Earth/Mountain base (lower portion) -->
+  <path d="M20 100 Q100 160 180 100 L180 180 L20 180 Z" fill="url(#earthGradient)" opacity="0.9"/>
+
+  <!-- Data points flowing along equator (tech feel) -->
+  <g fill="#f97316" opacity="0.8">
+    <circle cx="40" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.5s" fill="freeze"/></circle>
+    <circle cx="70" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.6s" fill="freeze"/></circle>
+    <circle cx="130" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.7s" fill="freeze"/></circle>
+    <circle cx="160" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.8s" fill="freeze"/></circle>
+  </g>
+
+  <!-- Subtle arrowheads on equator line (direction/flow) -->
+  <g fill="#f97316" opacity="0.6">
+    <polygon points="55,95 55,105 65,100"><animate attributeName="opacity" from="0" to="0.6" dur="0.5s" begin="2s" fill="freeze"/></polygon>
+    <polygon points="135,95 135,105 145,100"><animate attributeName="opacity" from="0" to="0.6" dur="0.5s" begin="2.1s" fill="freeze"/></polygon>
+  </g>
+</svg>

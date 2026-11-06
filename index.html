@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VOYAGO — Brand System v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=IBM+Plex+Sans:wght@300..700&family=IBM+Plex+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary-600:#2563eb; --primary-700:#1d4ed8; --primary-800:#1e40af;
+    --secondary-600:#16a34a; --accent-500:#f97316;
+    --n-0:#fff; --n-50:#fafafa; --n-100:#f4f4f5; --n-200:#e4e4e7;
+    --n-400:#a1a1aa; --n-600:#52525b; --n-900:#18181b; --n-950:#09090b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'IBM Plex Sans',system-ui,sans-serif;background:var(--n-50);color:var(--n-900);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Space Grotesk',system-ui,sans-serif;text-wrap:balance;line-height:1.2}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  section{padding:56px 0;border-bottom:1px solid var(--n-200)}
+  .kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--n-400);font-weight:600;margin-bottom:8px}
+  h2{font-size:clamp(24px,3vw,32px);font-weight:600;margin-bottom:8px}
+  .lead{color:var(--n-600);max-width:64ch;margin-bottom:32px}
+  .mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+
+  /* hero */
+  header{background:var(--n-950);color:#fff;padding:72px 0 64px}
+  header .kicker{color:#71717a}
+  header h1{font-size:clamp(36px,6vw,64px);font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+  header p{color:#a1a1aa;font-size:18px;max-width:56ch}
+  .eqline{height:4px;width:120px;background:var(--accent-500);border-radius:99px;margin-bottom:28px}
+
+  /* grid helpers */
+  .g{display:grid;gap:16px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+  .g6{grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
+  .card{background:#fff;border:1px solid var(--n-200);border-radius:8px;padding:24px}
+  .card h4{font-size:16px;font-weight:600;margin-bottom:6px}
+  .card p{font-size:14px;color:var(--n-600)}
+
+  /* logos */
+  .logo-box{display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--n-200);border-radius:8px;padding:32px;min-height:180px}
+  .logo-box.dark{background:var(--n-950);border-color:#27272a}
+
+  /* swatches */
+  .sw{border-radius:8px;overflow:hidden;border:1px solid var(--n-200);background:#fff}
+  .sw .chip{height:72px}
+  .sw .meta{padding:10px 12px}
+  .sw .name{font-size:12px;font-weight:600}
+  .sw .hex{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--n-600)}
+
+  /* type */
+  .typerow{display:flex;align-items:baseline;gap:20px;padding:14px 0;border-bottom:1px dashed var(--n-200)}
+  .typerow .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--n-400);width:110px;flex-shrink:0}
+  .d2xl{font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-.02em;font-family:'Space Grotesk'}
+  .dxl{font-size:32px;font-weight:700;font-family:'Space Grotesk'}
+  .dlg{font-size:26px;font-weight:600;font-family:'Space Grotesk'}
+  .dmd{font-size:22px;font-weight:600;font-family:'Space Grotesk'}
+  .blg{font-size:18px}
+  .bsm{font-size:14px;color:var(--n-600)}
+
+  /* icons */
+  .icongrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:12px}
+  .icon-cell{background:#fff;border:1px solid var(--n-200);border-radius:8px;padding:16px 8px;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .icon-cell img{width:24px;height:24px;opacity:.8}
+  .icon-cell span{font-size:10px;color:var(--n-600);text-align:center;line-height:1.3}
+
+  /* buttons */
+  .btnrow{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 16px;border-radius:4px;font-size:15px;font-weight:600;border:none;cursor:pointer;font-family:'IBM Plex Sans'}
+  .b-primary{background:var(--primary-600);color:#fff}
+  .b-secondary{background:var(--n-100);color:#3f3f46;border:1px solid var(--n-200)}
+  .b-ghost{background:transparent;color:#3f3f46}
+  .b-danger{background:#dc2626;color:#fff}
+
+  /* badges */
+  .badges{display:flex;flex-wrap:wrap;gap:8px}
+  .badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600}
+  .badge i{width:6px;height:6px;border-radius:99px;display:block;background:currentColor}
+  .bd-ok{background:#dcfce7;color:#166534}
+  .bd-warn{background:#ffedd5;color:#7c2d12}
+  .bd-err{background:#fef2f2;color:#991b1b}
+  .bd-neutral{background:var(--n-100);color:var(--n-600)}
+
+  /* table demo */
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--n-200);border-radius:8px;overflow:hidden}
+  th{background:var(--n-100);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#71717a;text-align:left;padding:12px 16px;font-weight:600}
+  td{padding:12px 16px;font-size:14px;border-top:1px solid var(--n-200);color:var(--n-600)}
+  td.num{text-align:right;font-family:'IBM Plex Mono',monospace;color:var(--n-900);font-weight:500}
+  td.id{font-family:'IBM Plex Mono',monospace;color:var(--n-900);font-size:13px}
+
+  footer{padding:40px 0;color:var(--n-400);font-size:13px}
+  code{background:var(--n-100);padding:2px 6px;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eqline"></div>
+    <div class="kicker">Sistema de marca · v1.0</div>
+    <h1>VOYAGO</h1>
+    <p>El ERP que habla ecuatoriano. Identidad, tokens y componentes para la plataforma de facturación electrónica, inventario, contabilidad, CRM y RRHH.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">01 · Logotipo</div>
+    <h2>Tres direcciones</h2>
+    <p class="lead">La dirección elegida es la primera: línea ecuatorial sobre horizonte con sol al centro. Las otras dos quedan como referencia del proceso.</p>
+    <div class="g g3">
+      <div>
+        <div class="logo-box"><img src="logo/logo-concept-1-equator.svg" alt="Concepto 1: Ecuador Horizon" style="width:140px"></div>
+        <p style="font-size:13px;margin-top:10px"><strong>1 · Ecuador Horizon</strong><br><span style="color:var(--n-600)">Elegida. Legible a 32px.</span></p>
+      </div>
+      <div>
+        <div class="logo-box"><img src="logo/logo-concept-2-data-flow.svg" alt="Concepto 2: Data Flow" style="width:140px"></div>
+        <p style="font-size:13px;margin-top:10px"><strong>2 · Data Flow</strong><br><span style="color:var(--n-600)">Hub con cuatro módulos.</span></p>
+      </div>
+      <div>
+        <div class="logo-box"><img src="logo/logo-concept-3-typographic.svg" alt="Concepto 3: wordmark" style="width:100%"></div>
+        <p style="font-size:13px;margin-top:10px"><strong>3 · Wordmark</strong><br><span style="color:var(--n-600)">Solo tipografía + línea.</span></p>
+      </div>
+    </div>
+    <div class="g g2" style="margin-top:16px">
+      <div class="logo-box dark"><img src="logo/logo-concept-1-equator.svg" alt="Logo sobre fondo oscuro" style="width:120px"></div>
+      <div class="logo-box"><img src="logo/logo-concept-1-equator.svg" alt="Logo tamaño favicon" style="width:32px"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">02 · Color</div>
+    <h2>Paleta Ecuador Horizon</h2>
+    <p class="lead">Azul de confianza técnica, verde de validación SRI, naranja de sol ecuatoriano. El naranja se usa en tres lugares y en ningún otro.</p>
+    <div class="g g6">
+      <div class="sw"><div class="chip" style="background:#2563eb"></div><div class="meta"><div class="name">Primary 600</div><div class="hex">#2563eb</div></div></div>
+      <div class="sw"><div class="chip" style="background:#1d4ed8"></div><div class="meta"><div class="name">Primary 700</div><div class="hex">#1d4ed8</div></div></div>
+      <div class="sw"><div class="chip" style="background:#1e40af"></div><div class="meta"><div class="name">Primary 800</div><div class="hex">#1e40af</div></div></div>
+      <div class="sw"><div class="chip" style="background:#16a34a"></div><div class="meta"><div class="name">Secondary 600</div><div class="hex">#16a34a</div></div></div>
+      <div class="sw"><div class="chip" style="background:#15803d"></div><div class="meta"><div class="name">Secondary 700</div><div class="hex">#15803d</div></div></div>
+      <div class="sw"><div class="chip" style="background:#f97316"></div><div class="meta"><div class="name">Accent 500</div><div class="hex">#f97316</div></div></div>
+      <div class="sw"><div class="chip" style="background:#fafafa"></div><div class="meta"><div class="name">Neutral 50</div><div class="hex">#fafafa</div></div></div>
+      <div class="sw"><div class="chip" style="background:#e4e4e7"></div><div class="meta"><div class="name">Neutral 200</div><div class="hex">#e4e4e7</div></div></div>
+      <div class="sw"><div class="chip" style="background:#52525b"></div><div class="meta"><div class="name">Neutral 600</div><div class="hex">#52525b</div></div></div>
+      <div class="sw"><div class="chip" style="background:#18181b"></div><div class="meta"><div class="name">Neutral 900</div><div class="hex">#18181b</div></div></div>
+      <div class="sw"><div class="chip" style="background:#09090b"></div><div class="meta"><div class="name">Neutral 950</div><div class="hex">#09090b</div></div></div>
+      <div class="sw"><div class="chip" style="background:#dc2626"></div><div class="meta"><div class="name">Error</div><div class="hex">#dc2626</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">03 · Tipografía</div>
+    <h2>Space Grotesk + IBM Plex</h2>
+    <p class="lead">Display geométrico para titulares, Plex Sans para interfaz, Plex Mono para todo número que deba cuadrar: RUC, comprobantes y montos.</p>
+    <div class="typerow"><span class="tag">display-2xl</span><span class="d2xl">Factura autorizada en 3 segundos</span></div>
+    <div class="typerow"><span class="tag">display-xl</span><span class="dxl">Tu contador lo va a entender</span></div>
+    <div class="typerow"><span class="tag">display-lg</span><span class="dlg">Inventario multi-bodega</span></div>
+    <div class="typerow"><span class="tag">display-md</span><span class="dmd">Últimas facturas emitidas</span></div>
+    <div class="typerow"><span class="tag">body-lg</span><span class="blg">Validación de RUC en vivo contra el SRI, sin salir del formulario.</span></div>
+    <div class="typerow"><span class="tag">body-sm</span><span class="bsm">El comprobante se envía automáticamente al correo del cliente.</span></div>
+    <div class="typerow"><span class="tag">code-md</span><span class="mono">FAC-001-00001247 · RUC 1792345678001 · $12,450.00</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">04 · Iconografía</div>
+    <h2>Set propio 24×24</h2>
+    <p class="lead">Trazo 2px, esquinas redondeadas. Cubre lo que Lucide no resuelve bien: RUC, SRI, retención y los cinco módulos.</p>
+    <div class="icongrid">
+      <div class="icon-cell"><img src="icons/invoice.svg" alt=""><span>Factura</span></div>
+      <div class="icon-cell"><img src="icons/ruc.svg" alt=""><span>RUC</span></div>
+      <div class="icon-cell"><img src="icons/sri.svg" alt=""><span>SRI</span></div>
+      <div class="icon-cell"><img src="icons/comprobante.svg" alt=""><span>Comprobante</span></div>
+      <div class="icon-cell"><img src="icons/retencion.svg" alt=""><span>Retención</span></div>
+      <div class="icon-cell"><img src="icons/empresa-usuario.svg" alt=""><span>Empresa</span></div>
+      <div class="icon-cell"><img src="icons/modulo-contabilidad.svg" alt=""><span>Contabilidad</span></div>
+      <div class="icon-cell"><img src="icons/modulo-inventario.svg" alt=""><span>Inventario</span></div>
+      <div class="icon-cell"><img src="icons/modulo-rrhh.svg" alt=""><span>RRHH</span></div>
+      <div class="icon-cell"><img src="icons/modulo-crm.svg" alt=""><span>CRM</span></div>
+      <div class="icon-cell"><img src="icons/dashboard.svg" alt=""><span>Dashboard</span></div>
+      <div class="icon-cell"><img src="icons/settings.svg" alt=""><span>Ajustes</span></div>
+      <div class="icon-cell"><img src="icons/users.svg" alt=""><span>Usuarios</span></div>
+      <div class="icon-cell"><img src="icons/chart.svg" alt=""><span>Reportes</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">05 · Componentes</div>
+    <h2>Estados base</h2>
+    <p class="lead">Botones, badges de comprobante y tabla de facturas con montos monoespaciados alineados a la derecha.</p>
+
+    <div class="btnrow" style="margin-bottom:24px">
+      <button class="btn b-primary">Nueva factura</button>
+      <button class="btn b-secondary">Exportar</button>
+      <button class="btn b-ghost">Cancelar</button>
+      <button class="btn b-danger">Anular</button>
+    </div>
+
+    <div class="badges" style="margin-bottom:24px">
+      <span class="badge bd-ok"><i></i>Autorizado</span>
+      <span class="badge bd-warn"><i></i>En proceso</span>
+      <span class="badge bd-err"><i></i>Rechazado</span>
+      <span class="badge bd-neutral"><i></i>Anulado</span>
+    </div>
+
+    <table>
+      <thead><tr><th>Comprobante</th><th>Cliente</th><th>Fecha</th><th style="text-align:right">Total</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td class="id">FAC-001-00001247</td><td>Constructora Andes S.A.</td><td>15/01/2026</td><td class="num">$12,450.00</td><td><span class="badge bd-ok"><i></i>Autorizado</span></td></tr>
+        <tr><td class="id">FAC-001-00001246</td><td>Distribuidora Costa S.A.</td><td>14/01/2026</td><td class="num">$8,720.50</td><td><span class="badge bd-ok"><i></i>Autorizado</span></td></tr>
+        <tr><td class="id">NCR-001-00000089</td><td>Servicios Médicos Quito</td><td>14/01/2026</td><td class="num">$3,100.00</td><td><span class="badge bd-warn"><i></i>En proceso</span></td></tr>
+        <tr><td class="id">FAC-001-00001245</td><td>Importadora Pacífico</td><td>13/01/2026</td><td class="num">$45,800.00</td><td><span class="badge bd-ok"><i></i>Autorizado</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">06 · Reglas</div>
+    <h2>Lo que no se hace</h2>
+    <div class="g g2">
+      <div class="card"><h4>Sin clichés andinos</h4><p>Ni banderas, ni cóndores, ni sombreros, ni llamas. La identidad es técnica, no costumbrista.</p></div>
+      <div class="card"><h4>Sin stock photos</h4><p>Nada de gente de negocios sonriendo frente a una laptop. Captura real del producto o ilustración geométrica.</p></div>
+      <div class="card"><h4>Sin azul genérico</h4><p>Nada de #0066FF ni #003399. El azul de marca es #2563eb y punto.</p></div>
+      <div class="card"><h4>Sin gradientes de moda</h4><p>Morado→rosa y teal→morado quedan fuera. Si hay degradado, sale de la paleta y tiene función.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    VOYAGO Brand System v1.0 · Tokens en <code>tokens/</code> · Componentes en <code>components/</code> · Brief para IA en <code>AI-BRIEF.md</code>
+  </div>
+</footer>
+
+</body>
+</html>

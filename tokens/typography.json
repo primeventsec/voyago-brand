@@ -1,0 +1,314 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "voyago-typography",
+  "description": "VOYAGO Design System - Typography tokens with fluid clamp() scales, variable fonts, OFL licensed",
+  "version": "1.0.0",
+  "fontFamilies": {
+    "display": {
+      "name": "Space Grotesk",
+      "category": "sans-serif",
+      "source": "Google Fonts",
+      "license": "OFL",
+      "variable": true,
+      "weights": [300, 400, 500, 600, 700],
+      "axes": {
+        "wght": "300 700",
+        "wdth": "75 100"
+      },
+      "fallback": ["system-ui", "sans-serif"],
+      "usage": "Headlines, hero text, marketing, logo wordmark",
+      "import": "@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');",
+      "cssVariable": "--font-display"
+    },
+    "ui": {
+      "name": "IBM Plex Sans",
+      "category": "sans-serif",
+      "source": "Google Fonts",
+      "license": "OFL",
+      "variable": true,
+      "weights": [300, 400, 500, 600, 700],
+      "axes": {
+        "wght": "300 700"
+      },
+      "fallback": ["system-ui", "sans-serif"],
+      "usage": "Body text, UI labels, tables, forms, code (with IBM Plex Mono)",
+      "import": "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300..700&display=swap');",
+      "cssVariable": "--font-ui"
+    },
+    "mono": {
+      "name": "IBM Plex Mono",
+      "category": "monospace",
+      "source": "Google Fonts",
+      "license": "OFL",
+      "variable": true,
+      "weights": [300, 400, 500, 600, 700],
+      "axes": {
+        "wght": "300 700"
+      },
+      "fallback": ["ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "monospace"],
+      "usage": "Code blocks, terminal output, invoice numbers, RUC, timestamps",
+      "import": "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300..700&display=swap');",
+      "cssVariable": "--font-mono"
+    }
+  },
+  "alternativePairs": [
+    {
+      "name": "Modern Technical",
+      "display": { "name": "Plus Jakarta Sans", "variable": true, "weights": [200, 300, 400, 500, 600, 700, 800], "import": "@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap');" },
+      "ui": { "name": "Inter", "variable": true, "weights": [100, 200, 300, 400, 500, 600, 700, 800, 900], "import": "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');" },
+      "mono": { "name": "JetBrains Mono", "variable": true, "weights": [100, 200, 300, 400, 500, 600, 700, 800], "import": "@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100..800&display=swap');" },
+      "rationale": "Más geométrico, muy legible en tablas densas, popular en dashboards SaaS"
+    },
+    {
+      "name": "Humanist Warmth",
+      "display": { "name": "DM Sans", "variable": true, "weights": [400, 500, 600, 700], "import": "@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');" },
+      "ui": { "name": "DM Sans", "variable": true, "weights": [400, 500, 600, 700], "import": "@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');" },
+      "mono": { "name": "DM Mono", "variable": false, "weights": [300, 400, 500], "import": "@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap');" },
+      "rationale": "Una sola familia para display + UI, más cálida, buena para marca cercana"
+    },
+    {
+      "name": "Engineering Precision",
+      "display": { "name": "Syne", "variable": true, "weights": [400, 500, 600, 700, 800], "import": "@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');" },
+      "ui": { "name": "IBM Plex Sans", "variable": true, "weights": [300, 400, 500, 600, 700], "import": "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300..700&display=swap');" },
+      "mono": { "name": "IBM Plex Mono", "variable": true, "weights": [300, 400, 500, 600, 700], "import": "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300..700&display=swap');" },
+      "rationale": "Syne display es muy distintivo para headlines, IBM Plex para datos técnicos"
+    }
+  ],
+  "scale": {
+    "fluid": true,
+    "baseSize": "16px",
+    "ratio": 1.25,
+    "breakpoints": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
+    },
+    "steps": {
+      "display-2xl": {
+        "clamp": "clamp(2.5rem, 5vw + 1rem, 5rem)",
+        "px": { "min": 40, "max": 80 },
+        "lineHeight": 1.1,
+        "letterSpacing": "-0.02em",
+        "fontWeight": 700,
+        "fontFamily": "display",
+        "usage": "Hero headline, landing H1"
+      },
+      "display-xl": {
+        "clamp": "clamp(2rem, 4vw + 0.5rem, 3.5rem)",
+        "px": { "min": 32, "max": 56 },
+        "lineHeight": 1.15,
+        "letterSpacing": "-0.015em",
+        "fontWeight": 700,
+        "fontFamily": "display",
+        "usage": "Page title, major section H1"
+      },
+      "display-lg": {
+        "clamp": "clamp(1.75rem, 3vw + 0.5rem, 2.5rem)",
+        "px": { "min": 28, "max": 40 },
+        "lineHeight": 1.2,
+        "letterSpacing": "-0.01em",
+        "fontWeight": 600,
+        "fontFamily": "display",
+        "usage": "Section H2, card headline"
+      },
+      "display-md": {
+        "clamp": "clamp(1.5rem, 2vw + 0.5rem, 2rem)",
+        "px": { "min": 24, "max": 32 },
+        "lineHeight": 1.25,
+        "letterSpacing": "-0.005em",
+        "fontWeight": 600,
+        "fontFamily": "display",
+        "usage": "Subsection H3, widget title"
+      },
+      "display-sm": {
+        "clamp": "clamp(1.25rem, 1.5vw + 0.5rem, 1.5rem)",
+        "px": { "min": 20, "max": 24 },
+        "lineHeight": 1.3,
+        "letterSpacing": "0",
+        "fontWeight": 600,
+        "fontFamily": "display",
+        "usage": "Minor heading H4, sidebar section"
+      },
+      "heading-xl": {
+        "clamp": "clamp(1.5rem, 1.5vw + 0.5rem, 2rem)",
+        "px": { "min": 24, "max": 32 },
+        "lineHeight": 1.3,
+        "letterSpacing": "0",
+        "fontWeight": 700,
+        "fontFamily": "ui",
+        "usage": "Table header, modal title"
+      },
+      "heading-lg": {
+        "clamp": "clamp(1.25rem, 1vw + 0.5rem, 1.5rem)",
+        "px": { "min": 20, "max": 24 },
+        "lineHeight": 1.4,
+        "letterSpacing": "0",
+        "fontWeight": 600,
+        "fontFamily": "ui",
+        "usage": "Card title, list item primary"
+      },
+      "heading-md": {
+        "clamp": "clamp(1.125rem, 0.5vw + 0.75rem, 1.25rem)",
+        "px": { "min": 18, "max": 20 },
+        "lineHeight": 1.4,
+        "letterSpacing": "0",
+        "fontWeight": 600,
+        "fontFamily": "ui",
+        "usage": "Form label, dropdown trigger"
+      },
+      "heading-sm": {
+        "clamp": "clamp(1rem, 0.25vw + 0.875rem, 1.125rem)",
+        "px": { "min": 16, "max": 18 },
+        "lineHeight": 1.5,
+        "letterSpacing": "0",
+        "fontWeight": 600,
+        "fontFamily": "ui",
+        "usage": "Badge, pill, tab label"
+      },
+      "body-xl": {
+        "clamp": "clamp(1.125rem, 0.5vw + 0.75rem, 1.25rem)",
+        "px": { "min": 18, "max": 20 },
+        "lineHeight": 1.6,
+        "letterSpacing": "0",
+        "fontWeight": 400,
+        "fontFamily": "ui",
+        "usage": "Lead paragraph, intro text"
+      },
+      "body-lg": {
+        "clamp": "clamp(1rem, 0.25vw + 0.875rem, 1.125rem)",
+        "px": { "min": 16, "max": 18 },
+        "lineHeight": 1.6,
+        "letterSpacing": "0",
+        "fontWeight": 400,
+        "fontFamily": "ui",
+        "usage": "Default body text, paragraph"
+      },
+      "body-md": {
+        "clamp": "clamp(0.9375rem, 0.125vw + 0.875rem, 1rem)",
+        "px": { "min": 15, "max": 16 },
+        "lineHeight": 1.55,
+        "letterSpacing": "0",
+        "fontWeight": 400,
+        "fontFamily": "ui",
+        "usage": "Table cell, dense body"
+      },
+      "body-sm": {
+        "clamp": "clamp(0.875rem, 0.125vw + 0.8125rem, 0.9375rem)",
+        "px": { "min": 14, "max": 15 },
+        "lineHeight": 1.5,
+        "letterSpacing": "0",
+        "fontWeight": 400,
+        "fontFamily": "ui",
+        "usage": "Secondary text, description, help text"
+      },
+      "body-xs": {
+        "clamp": "clamp(0.75rem, 0.125vw + 0.6875rem, 0.8125rem)",
+        "px": { "min": 12, "max": 13 },
+        "lineHeight": 1.5,
+        "letterSpacing": "0.01em",
+        "fontWeight": 400,
+        "fontFamily": "ui",
+        "usage": "Caption, timestamp, footer legal"
+      },
+      "code-sm": {
+        "clamp": "clamp(0.8125rem, 0.125vw + 0.75rem, 0.875rem)",
+        "px": { "min": 13, "max": 14 },
+        "lineHeight": 1.5,
+        "letterSpacing": "0",
+        "fontWeight": 400,
+        "fontFamily": "mono",
+        "usage": "Inline code, RUC, invoice number"
+      },
+      "code-md": {
+        "clamp": "clamp(0.875rem, 0.125vw + 0.8125rem, 0.9375rem)",
+        "px": { "min": 14, "max": 15 },
+        "lineHeight": 1.6,
+        "letterSpacing": "0",
+        "fontWeight": 400,
+        "fontFamily": "mono",
+        "usage": "Code block, terminal output"
+      },
+      "button-lg": {
+        "clamp": "clamp(1rem, 0.125vw + 0.9375rem, 1.125rem)",
+        "px": { "min": 16, "max": 18 },
+        "lineHeight": 1.4,
+        "letterSpacing": "0.01em",
+        "fontWeight": 600,
+        "fontFamily": "ui",
+        "usage": "Large primary button"
+      },
+      "button-md": {
+        "clamp": "clamp(0.9375rem, 0.125vw + 0.875rem, 1rem)",
+        "px": { "min": 15, "max": 16 },
+        "lineHeight": 1.4,
+        "letterSpacing": "0.01em",
+        "fontWeight": 600,
+        "fontFamily": "ui",
+        "usage": "Default button"
+      },
+      "button-sm": {
+        "clamp": "clamp(0.875rem, 0.125vw + 0.8125rem, 0.9375rem)",
+        "px": { "min": 14, "max": 15 },
+        "lineHeight": 1.4,
+        "letterSpacing": "0.01em",
+        "fontWeight": 600,
+        "fontFamily": "ui",
+        "usage": "Small button, icon button label"
+      }
+    }
+  },
+  "tailwindConfig": {
+    "fontFamily": {
+      "display": ["var(--font-display)", "system-ui", "sans-serif"],
+      "ui": ["var(--font-ui)", "system-ui", "sans-serif"],
+      "mono": ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "monospace"]
+    },
+    "fontSize": {
+      "display-2xl": ["clamp(2.5rem, 5vw + 1rem, 5rem)", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700", "fontFamily": "var(--font-display)" }],
+      "display-xl": ["clamp(2rem, 4vw + 0.5rem, 3.5rem)", { "lineHeight": "1.15", "letterSpacing": "-0.015em", "fontWeight": "700", "fontFamily": "var(--font-display)" }],
+      "display-lg": ["clamp(1.75rem, 3vw + 0.5rem, 2.5rem)", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600", "fontFamily": "var(--font-display)" }],
+      "display-md": ["clamp(1.5rem, 2vw + 0.5rem, 2rem)", { "lineHeight": "1.25", "letterSpacing": "-0.005em", "fontWeight": "600", "fontFamily": "var(--font-display)" }],
+      "display-sm": ["clamp(1.25rem, 1.5vw + 0.5rem, 1.5rem)", { "lineHeight": "1.3", "letterSpacing": "0", "fontWeight": "600", "fontFamily": "var(--font-display)" }],
+      "heading-xl": ["clamp(1.5rem, 1.5vw + 0.5rem, 2rem)", { "lineHeight": "1.3", "letterSpacing": "0", "fontWeight": "700", "fontFamily": "var(--font-ui)" }],
+      "heading-lg": ["clamp(1.25rem, 1vw + 0.5rem, 1.5rem)", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600", "fontFamily": "var(--font-ui)" }],
+      "heading-md": ["clamp(1.125rem, 0.5vw + 0.75rem, 1.25rem)", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "600", "fontFamily": "var(--font-ui)" }],
+      "heading-sm": ["clamp(1rem, 0.25vw + 0.875rem, 1.125rem)", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "600", "fontFamily": "var(--font-ui)" }],
+      "body-xl": ["clamp(1.125rem, 0.5vw + 0.75rem, 1.25rem)", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400", "fontFamily": "var(--font-ui)" }],
+      "body-lg": ["clamp(1rem, 0.25vw + 0.875rem, 1.125rem)", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400", "fontFamily": "var(--font-ui)" }],
+      "body-md": ["clamp(0.9375rem, 0.125vw + 0.875rem, 1rem)", { "lineHeight": "1.55", "letterSpacing": "0", "fontWeight": "400", "fontFamily": "var(--font-ui)" }],
+      "body-sm": ["clamp(0.875rem, 0.125vw + 0.8125rem, 0.9375rem)", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400", "fontFamily": "var(--font-ui)" }],
+      "body-xs": ["clamp(0.75rem, 0.125vw + 0.6875rem, 0.8125rem)", { "lineHeight": "1.5", "letterSpacing": "0.01em", "fontWeight": "400", "fontFamily": "var(--font-ui)" }],
+      "code-sm": ["clamp(0.8125rem, 0.125vw + 0.75rem, 0.875rem)", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400", "fontFamily": "var(--font-mono)" }],
+      "code-md": ["clamp(0.875rem, 0.125vw + 0.8125rem, 0.9375rem)", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400", "fontFamily": "var(--font-mono)" }],
+      "button-lg": ["clamp(1rem, 0.125vw + 0.9375rem, 1.125rem)", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600", "fontFamily": "var(--font-ui)" }],
+      "button-md": ["clamp(0.9375rem, 0.125vw + 0.875rem, 1rem)", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600", "fontFamily": "var(--font-ui)" }],
+      "button-sm": ["clamp(0.875rem, 0.125vw + 0.8125rem, 0.9375rem)", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600", "fontFamily": "var(--font-ui)" }]
+    }
+  },
+  "cssVariables": {
+    "--font-display": "'Space Grotesk', system-ui, sans-serif",
+    "--font-ui": "'IBM Plex Sans', system-ui, sans-serif",
+    "--font-mono": "'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+    "--text-display-2xl": "clamp(2.5rem, 5vw + 1rem, 5rem)",
+    "--text-display-xl": "clamp(2rem, 4vw + 0.5rem, 3.5rem)",
+    "--text-display-lg": "clamp(1.75rem, 3vw + 0.5rem, 2.5rem)",
+    "--text-display-md": "clamp(1.5rem, 2vw + 0.5rem, 2rem)",
+    "--text-display-sm": "clamp(1.25rem, 1.5vw + 0.5rem, 1.5rem)",
+    "--text-heading-xl": "clamp(1.5rem, 1.5vw + 0.5rem, 2rem)",
+    "--text-heading-lg": "clamp(1.25rem, 1vw + 0.5rem, 1.5rem)",
+    "--text-heading-md": "clamp(1.125rem, 0.5vw + 0.75rem, 1.25rem)",
+    "--text-heading-sm": "clamp(1rem, 0.25vw + 0.875rem, 1.125rem)",
+    "--text-body-xl": "clamp(1.125rem, 0.5vw + 0.75rem, 1.25rem)",
+    "--text-body-lg": "clamp(1rem, 0.25vw + 0.875rem, 1.125rem)",
+    "--text-body-md": "clamp(0.9375rem, 0.125vw + 0.875rem, 1rem)",
+    "--text-body-sm": "clamp(0.875rem, 0.125vw + 0.8125rem, 0.9375rem)",
+    "--text-body-xs": "clamp(0.75rem, 0.125vw + 0.6875rem, 0.8125rem)",
+    "--text-code-sm": "clamp(0.8125rem, 0.125vw + 0.75rem, 0.875rem)",
+    "--text-code-md": "clamp(0.875rem, 0.125vw + 0.8125rem, 0.9375rem)",
+    "--text-button-lg": "clamp(1rem, 0.125vw + 0.9375rem, 1.125rem)",
+    "--text-button-md": "clamp(0.9375rem, 0.125vw + 0.875rem, 1rem)",
+    "--text-button-sm": "clamp(0.875rem, 0.125vw + 0.8125rem, 0.9375rem)"
+  }
+}

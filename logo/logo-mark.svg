@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="VOYAGO">
+  <title>VOYAGO — marca principal</title>
+  <!-- Sol sobre la línea ecuatorial. Sin contenedor: transparente. -->
+  <circle cx="100" cy="74" r="30" fill="#f97316"/>
+  <line x1="16" y1="120" x2="184" y2="120" stroke="#f97316" stroke-width="10" stroke-linecap="round"/>
+</svg>

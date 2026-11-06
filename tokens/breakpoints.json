@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "voyago-breakpoints",
+  "description": "VOYAGO Design System - Breakpoints matching Next.js/Tailwind defaults",
+  "version": "1.0.0",
+  "breakpoints": {
+    "sm": { "value": "640px", "description": "Small tablets, large phones landscape" },
+    "md": { "value": "768px", "description": "Tablets portrait, sidebar collapses" },
+    "lg": { "value": "1024px", "description": "Laptops, desktop default" },
+    "xl": { "value": "1280px", "description": "Large desktop, wide layouts" },
+    "2xl": { "value": "1536px", "description": "Ultra-wide, full bleed layouts" }
+  },
+  "semantic": {
+    "mobile": { "value": "{sm}", "description": "Mobile-first breakpoint" },
+    "tablet": { "value": "{md}", "description": "Tablet breakpoint" },
+    "desktop": { "value": "{lg}", "description": "Desktop breakpoint" },
+    "wide": { "value": "{xl}", "description": "Wide desktop breakpoint" },
+    "sidebarCollapse": { "value": "{md}", "description": "Sidebar collapses at this breakpoint" },
+    "containerMax": { "value": "1280px", "description": "Max container width (xl)" },
+    "contentMax": { "value": "960px", "description": "Max content width for reading" },
+    "formMax": { "value": "480px", "description": "Max form width" },
+    "modalMax": { "value": "560px", "description": "Max modal width" },
+    "sidebarWidth": { "value": "280px", "description": "Sidebar expanded width" },
+    "sidebarCollapsed": { "value": "72px", "description": "Sidebar collapsed width" }
+  },
+  "tailwindConfig": {
+    "screens": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
+    }
+  },
+  "cssVariables": {
+    "--bp-sm": "640px",
+    "--bp-md": "768px",
+    "--bp-lg": "1024px",
+    "--bp-xl": "1280px",
+    "--bp-2xl": "1536px",
+    "--sidebar-width": "280px",
+    "--sidebar-collapsed": "72px",
+    "--container-max": "1280px",
+    "--content-max": "960px",
+    "--form-max": "480px",
+    "--modal-max": "560px"
+  }
+}

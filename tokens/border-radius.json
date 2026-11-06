@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "voyago-border-radius",
+  "description": "VOYAGO Design System - Border radius tokens",
+  "version": "1.0.0",
+  "scale": {
+    "none": { "value": "0", "description": "Sharp corners (badges, tags)" },
+    "sm": { "value": "0.125rem", "px": 2, "description": "Minimal (input addons, small badges)" },
+    "base": { "value": "0.25rem", "px": 4, "description": "Default (buttons, inputs, cards)" },
+    "md": { "value": "0.375rem", "px": 6, "description": "Medium (modals, dropdowns, table headers)" },
+    "lg": { "value": "0.5rem", "px": 8, "description": "Large (cards, panels, containers)" },
+    "xl": { "value": "0.75rem", "px": 12, "description": "XL (hero sections, major cards)" },
+    "2xl": { "value": "1rem", "px": 16, "description": "2XL (landing cards, featured)" },
+    "full": { "value": "9999px", "description": "Fully rounded (pills, avatars, circular buttons)" }
+  },
+  "semantic": {
+    "button": { "value": "{base}", "description": "Button border radius" },
+    "buttonPill": { "value": "{full}", "description": "Pill button radius" },
+    "input": { "value": "{base}", "description": "Input border radius" },
+    "card": { "value": "{lg}", "description": "Card border radius" },
+    "modal": { "value": "{xl}", "description": "Modal border radius" },
+    "dropdown": { "value": "{md}", "description": "Dropdown border radius" },
+    "tooltip": { "value": "{sm}", "description": "Tooltip border radius" },
+    "badge": { "value": "{full}", "description": "Badge border radius" },
+    "avatar": { "value": "{full}", "description": "Avatar border radius" },
+    "table": { "value": "{sm}", "description": "Table cell/header radius" },
+    "tag": { "value": "{full}", "description": "Tag/pill radius" },
+    "progress": { "value": "{full}", "description": "Progress bar radius" },
+    "switch": { "value": "{full}", "description": "Switch/toggle radius" },
+    "tabs": { "value": "{base}", "description": "Tab trigger radius" }
+  },
+  "tailwindConfig": {
+    "borderRadius": {
+      "none": "0",
+      "sm": "0.125rem",
+      "DEFAULT": "0.25rem",
+      "md": "0.375rem",
+      "lg": "0.5rem",
+      "xl": "0.75rem",
+      "2xl": "1rem",
+      "full": "9999px"
+    }
+  },
+  "cssVariables": {
+    "--radius-none": "0",
+    "--radius-sm": "0.125rem",
+    "--radius-base": "0.25rem",
+    "--radius-md": "0.375rem",
+    "--radius-lg": "0.5rem",
+    "--radius-xl": "0.75rem",
+    "--radius-2xl": "1rem",
+    "--radius-full": "9999px"
+  }
+}

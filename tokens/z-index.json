@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "voyago-z-index",
+  "description": "VOYAGO Design System - Z-index scale for layering",
+  "version": "1.0.0",
+  "scale": {
+    "base": { "value": 0, "description": "Base content" },
+    "dropdown": { "value": 100, "description": "Dropdown menus, select options" },
+    "sticky": { "value": 200, "description": "Sticky headers, table headers" },
+    "fixed": { "value": 300, "description": "Fixed headers, footers, sidebars" },
+    "modalBackdrop": { "value": 400, "description": "Modal backdrop/overlay" },
+    "modal": { "value": 500, "description": "Modal dialog, drawer, slide-over" },
+    "popover": { "value": 600, "description": "Popover, tooltip, toast" },
+    "toast": { "value": 700, "description": "Toast notifications" },
+    "tooltip": { "value": 800, "description": "Tooltip (above toast)" },
+    "loading": { "value": 900, "description": "Full-screen loading overlay" }
+  },
+  "tailwindConfig": {
+    "zIndex": {
+      "base": "0",
+      "dropdown": "100",
+      "sticky": "200",
+      "fixed": "300",
+      "modal-backdrop": "400",
+      "modal": "500",
+      "popover": "600",
+      "toast": "700",
+      "tooltip": "800",
+      "loading": "900"
+    }
+  },
+  "cssVariables": {
+    "--z-base": "0",
+    "--z-dropdown": "100",
+    "--z-sticky": "200",
+    "--z-fixed": "300",
+    "--z-modal-backdrop": "400",
+    "--z-modal": "500",
+    "--z-popover": "600",
+    "--z-toast": "700",
+    "--z-tooltip": "800",
+    "--z-loading": "900"
+  }
+}

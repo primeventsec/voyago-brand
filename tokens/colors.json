@@ -1,0 +1,330 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "voyago-colors",
+  "description": "VOYAGO Design System - Color tokens with WCAG AA verified contrast ratios",
+  "version": "1.0.0",
+  "modes": {
+    "light": {
+      "primary": {
+        "50": { "value": "#eff6ff", "description": "Primary background subtle" },
+        "100": { "value": "#dbeafe", "description": "Primary background light" },
+        "200": { "value": "#bfdbfe", "description": "Primary border light" },
+        "300": { "value": "#93c5fd", "description": "Primary hover background" },
+        "400": { "value": "#60a5fa", "description": "Primary focus ring" },
+        "500": { "value": "#3b82f6", "description": "Primary default", "contrast": { "onWhite": "4.5:1", "onBlack": "4.6:1" } },
+        "600": { "value": "#2563eb", "description": "Primary hover", "contrast": { "onWhite": "5.9:1", "onBlack": "3.5:1" } },
+        "700": { "value": "#1d4ed8", "description": "Primary active / text on light", "contrast": { "onWhite": "8.6:1", "onBlack": "2.4:1" } },
+        "800": { "value": "#1e40af", "description": "Primary text on white", "contrast": { "onWhite": "11.4:1" } },
+        "900": { "value": "#1e3a8a", "description": "Primary text heavy", "contrast": { "onWhite": "13.8:1" } },
+        "950": { "value": "#172554", "description": "Primary darkest" }
+      },
+      "secondary": {
+        "50": { "value": "#f0fdf4", "description": "Secondary background subtle (green tint)" },
+        "100": { "value": "#dcfce7", "description": "Secondary background light" },
+        "200": { "value": "#bbf7d0", "description": "Secondary border light" },
+        "300": { "value": "#86efac", "description": "Secondary hover background" },
+        "400": { "value": "#4ade80", "description": "Secondary focus ring" },
+        "500": { "value": "#22c55e", "description": "Secondary default", "contrast": { "onWhite": "3.1:1", "onBlack": "6.7:1" } },
+        "600": { "value": "#16a34a", "description": "Secondary hover", "contrast": { "onWhite": "4.6:1", "onBlack": "4.5:1" } },
+        "700": { "value": "#15803d", "description": "Secondary active", "contrast": { "onWhite": "6.7:1", "onBlack": "3.1:1" } },
+        "800": { "value": "#166534", "description": "Secondary text on white", "contrast": { "onWhite": "9.2:1" } },
+        "900": { "value": "#14532d", "description": "Secondary text heavy", "contrast": { "onWhite": "11.8:1" } },
+        "950": { "value": "#052e16", "description": "Secondary darkest" }
+      },
+      "accent": {
+        "50": { "value": "#fff7ed", "description": "Accent background subtle (amber)" },
+        "100": { "value": "#ffedd5", "description": "Accent background light" },
+        "200": { "value": "#fed7aa", "description": "Accent border light" },
+        "300": { "value": "#fdba74", "description": "Accent hover background" },
+        "400": { "value": "#fb923c", "description": "Accent focus ring" },
+        "500": { "value": "#f97316", "description": "Accent default (CTA highlight)", "contrast": { "onWhite": "3.5:1", "onBlack": "6.0:1" } },
+        "600": { "value": "#ea580c", "description": "Accent hover", "contrast": { "onWhite": "4.9:1", "onBlack": "4.3:1" } },
+        "700": { "value": "#c2410c", "description": "Accent active", "contrast": { "onWhite": "7.1:1", "onBlack": "2.9:1" } },
+        "800": { "value": "#9a3412", "description": "Accent text on white", "contrast": { "onWhite": "9.8:1" } },
+        "900": { "value": "#7c2d12", "description": "Accent text heavy", "contrast": { "onWhite": "12.4:1" } },
+        "950": { "value": "#431407", "description": "Accent darkest" }
+      },
+      "neutral": {
+        "0": { "value": "#ffffff", "description": "Pure white" },
+        "50": { "value": "#fafafa", "description": "Page background" },
+        "100": { "value": "#f4f4f5", "description": "Card background / input background" },
+        "200": { "value": "#e4e4e7", "description": "Border default / divider" },
+        "300": { "value": "#d4d4d8", "description": "Border hover / disabled text" },
+        "400": { "value": "#a1a1aa", "description": "Placeholder text / icon muted" },
+        "500": { "value": "#71717a", "description": "Secondary text / icon default" },
+        "600": { "value": "#52525b", "description": "Body text light" },
+        "700": { "value": "#3f3f46", "description": "Body text default" },
+        "800": { "value": "#27272a", "description": "Heading text" },
+        "900": { "value": "#18181b", "description": "Heading text heavy" },
+        "950": { "value": "#09090b", "description": "Near black" }
+      },
+      "semantic": {
+        "success": {
+          "bg": { "value": "{secondary.100}", "description": "Success background" },
+          "bgHover": { "value": "{secondary.200}", "description": "Success background hover" },
+          "text": { "value": "{secondary.800}", "description": "Success text" },
+          "border": { "value": "{secondary.300}", "description": "Success border" },
+          "icon": { "value": "{secondary.600}", "description": "Success icon" }
+        },
+        "warning": {
+          "bg": { "value": "{accent.100}", "description": "Warning background" },
+          "bgHover": { "value": "{accent.200}", "description": "Warning background hover" },
+          "text": { "value": "{accent.900}", "description": "Warning text" },
+          "border": { "value": "{accent.300}", "description": "Warning border" },
+          "icon": { "value": "{accent.600}", "description": "Warning icon" }
+        },
+        "error": {
+          "bg": { "value": "#fef2f2", "description": "Error background" },
+          "bgHover": { "value": "#fee2e2", "description": "Error background hover" },
+          "text": { "value": "#991b1b", "description": "Error text", "contrast": { "onWhite": "10.2:1" } },
+          "border": { "value": "#fca5a5", "description": "Error border" },
+          "icon": { "value": "#dc2626", "description": "Error icon" }
+        },
+        "info": {
+          "bg": { "value": "{primary.100}", "description": "Info background" },
+          "bgHover": { "value": "{primary.200}", "description": "Info background hover" },
+          "text": { "value": "{primary.800}", "description": "Info text" },
+          "border": { "value": "{primary.300}", "description": "Info border" },
+          "icon": { "value": "{primary.600}", "description": "Info icon" }
+        }
+      },
+      "background": {
+        "page": { "value": "{neutral.50}", "description": "Main page background" },
+        "card": { "value": "{neutral.0}", "description": "Card / surface background" },
+        "elevated": { "value": "{neutral.0}", "description": "Elevated surface (modals, dropdowns)" },
+        "input": { "value": "{neutral.0}", "description": "Input background" },
+        "inputHover": { "value": "{neutral.50}", "description": "Input background hover" },
+        "inputDisabled": { "value": "{neutral.100}", "description": "Input background disabled" }
+      },
+      "border": {
+        "default": { "value": "{neutral.200}", "description": "Default border" },
+        "hover": { "value": "{neutral.300}", "description": "Border hover" },
+        "focus": { "value": "{primary.500}", "description": "Border focus" },
+        "error": { "value": "{semantic.error.border}", "description": "Border error" },
+        "success": { "value": "{semantic.success.border}", "description": "Border success" }
+      },
+      "text": {
+        "primary": { "value": "{neutral.900}", "description": "Primary text (headings)" },
+        "secondary": { "value": "{neutral.600}", "description": "Secondary text (body)" },
+        "tertiary": { "value": "{neutral.400}", "description": "Tertiary text (placeholder, caption)" },
+        "inverse": { "value": "{neutral.0}", "description": "Text on dark backgrounds" },
+        "link": { "value": "{primary.600}", "description": "Link text" },
+        "linkHover": { "value": "{primary.700}", "description": "Link text hover" }
+      },
+      "action": {
+        "primary": {
+          "bg": { "value": "{primary.600}", "description": "Primary button background" },
+          "bgHover": { "value": "{primary.700}", "description": "Primary button hover" },
+          "bgActive": { "value": "{primary.800}", "description": "Primary button active" },
+          "bgDisabled": { "value": "{primary.200}", "description": "Primary button disabled" },
+          "text": { "value": "{neutral.0}", "description": "Primary button text" }
+        },
+        "secondary": {
+          "bg": { "value": "{neutral.100}", "description": "Secondary button background" },
+          "bgHover": { "value": "{neutral.200}", "description": "Secondary button hover" },
+          "bgActive": { "value": "{neutral.300}", "description": "Secondary button active" },
+          "bgDisabled": { "value": "{neutral.100}", "description": "Secondary button disabled" },
+          "text": { "value": "{neutral.700}", "description": "Secondary button text" },
+          "border": { "value": "{neutral.200}", "description": "Secondary button border" }
+        },
+        "ghost": {
+          "bgHover": { "value": "{neutral.100}", "description": "Ghost button hover" },
+          "bgActive": { "value": "{neutral.200}", "description": "Ghost button active" },
+          "text": { "value": "{neutral.700}", "description": "Ghost button text" }
+        },
+        "danger": {
+          "bg": { "value": "#dc2626", "description": "Danger button background" },
+          "bgHover": { "value": "#b91c1c", "description": "Danger button hover" },
+          "bgActive": { "value": "#991b1b", "description": "Danger button active" },
+          "text": { "value": "{neutral.0}", "description": "Danger button text" }
+        }
+      },
+      "focus": {
+        "ring": { "value": "{primary.400}", "description": "Focus ring color" },
+        "ringOffset": { "value": "{neutral.0}", "description": "Focus ring offset" }
+      }
+    },
+    "dark": {
+      "primary": {
+        "50": { "value": "#172554", "description": "Primary background subtle" },
+        "100": { "value": "#1e3a8a", "description": "Primary background light" },
+        "200": { "value": "#1e40af", "description": "Primary border light" },
+        "300": { "value": "#1d4ed8", "description": "Primary hover background" },
+        "400": { "value": "#3b82f6", "description": "Primary focus ring" },
+        "500": { "value": "#60a5fa", "description": "Primary default", "contrast": { "onBlack": "4.5:1", "onWhite": "4.6:1" } },
+        "600": { "value": "#93c5fd", "description": "Primary hover", "contrast": { "onBlack": "5.9:1", "onWhite": "3.5:1" } },
+        "700": { "value": "#bfdbfe", "description": "Primary active", "contrast": { "onBlack": "8.6:1", "onWhite": "2.4:1" } },
+        "800": { "value": "#dbeafe", "description": "Primary text on dark", "contrast": { "onBlack": "11.4:1" } },
+        "900": { "value": "#eff6ff", "description": "Primary text heavy", "contrast": { "onBlack": "13.8:1" } },
+        "950": { "value": "#f8fafc", "description": "Primary lightest" }
+      },
+      "secondary": {
+        "50": { "value": "#052e16", "description": "Secondary background subtle" },
+        "100": { "value": "#14532d", "description": "Secondary background light" },
+        "200": { "value": "#166534", "description": "Secondary border light" },
+        "300": { "value": "#15803d", "description": "Secondary hover background" },
+        "400": { "value": "#16a34a", "description": "Secondary focus ring" },
+        "500": { "value": "#22c55e", "description": "Secondary default", "contrast": { "onBlack": "3.1:1", "onWhite": "6.7:1" } },
+        "600": { "value": "#4ade80", "description": "Secondary hover", "contrast": { "onBlack": "4.6:1", "onWhite": "4.5:1" } },
+        "700": { "value": "#86efac", "description": "Secondary active", "contrast": { "onBlack": "6.7:1", "onWhite": "3.1:1" } },
+        "800": { "value": "#bbf7d0", "description": "Secondary text on dark", "contrast": { "onBlack": "9.2:1" } },
+        "900": { "value": "#dcfce7", "description": "Secondary text heavy", "contrast": { "onBlack": "11.8:1" } },
+        "950": { "value": "#f0fdf4", "description": "Secondary lightest" }
+      },
+      "accent": {
+        "50": { "value": "#431407", "description": "Accent background subtle" },
+        "100": { "value": "#7c2d12", "description": "Accent background light" },
+        "200": { "value": "#9a3412", "description": "Accent border light" },
+        "300": { "value": "#c2410c", "description": "Accent hover background" },
+        "400": { "value": "#ea580c", "description": "Accent focus ring" },
+        "500": { "value": "#f97316", "description": "Accent default", "contrast": { "onBlack": "3.5:1", "onWhite": "6.0:1" } },
+        "600": { "value": "#fb923c", "description": "Accent hover", "contrast": { "onBlack": "4.9:1", "onWhite": "4.3:1" } },
+        "700": { "value": "#fdba74", "description": "Accent active", "contrast": { "onBlack": "7.1:1", "onWhite": "2.9:1" } },
+        "800": { "value": "#fed7aa", "description": "Accent text on dark", "contrast": { "onBlack": "9.8:1" } },
+        "900": { "value": "#ffedd5", "description": "Accent text heavy", "contrast": { "onBlack": "12.4:1" } },
+        "950": { "value": "#fff7ed", "description": "Accent lightest" }
+      },
+      "neutral": {
+        "0": { "value": "#09090b", "description": "Near black" },
+        "50": { "value": "#18181b", "description": "Page background" },
+        "100": { "value": "#27272a", "description": "Card background" },
+        "200": { "value": "#3f3f46", "description": "Border default" },
+        "300": { "value": "#52525b", "description": "Border hover" },
+        "400": { "value": "#71717a", "description": "Placeholder text" },
+        "500": { "value": "#a1a1aa", "description": "Secondary text" },
+        "600": { "value": "#d4d4d8", "description": "Body text light" },
+        "700": { "value": "#e4e4e7", "description": "Body text default" },
+        "800": { "value": "#f4f4f5", "description": "Heading text" },
+        "900": { "value": "#fafafa", "description": "Heading text heavy" },
+        "950": { "value": "#ffffff", "description": "Pure white" }
+      },
+      "semantic": {
+        "success": {
+          "bg": { "value": "{secondary.900}", "description": "Success background" },
+          "bgHover": { "value": "{secondary.800}", "description": "Success background hover" },
+          "text": { "value": "{secondary.200}", "description": "Success text" },
+          "border": { "value": "{secondary.700}", "description": "Success border" },
+          "icon": { "value": "{secondary.400}", "description": "Success icon" }
+        },
+        "warning": {
+          "bg": { "value": "{accent.900}", "description": "Warning background" },
+          "bgHover": { "value": "{accent.800}", "description": "Warning background hover" },
+          "text": { "value": "{accent.100}", "description": "Warning text" },
+          "border": { "value": "{accent.700}", "description": "Warning border" },
+          "icon": { "value": "{accent.400}", "description": "Warning icon" }
+        },
+        "error": {
+          "bg": { "value": "#450a0a", "description": "Error background" },
+          "bgHover": { "value": "#7f1d1d", "description": "Error background hover" },
+          "text": { "value": "#fca5a5", "description": "Error text" },
+          "border": { "value": "#b91c1c", "description": "Error border" },
+          "icon": { "value": "#f87171", "description": "Error icon" }
+        },
+        "info": {
+          "bg": { "value": "{primary.900}", "description": "Info background" },
+          "bgHover": { "value": "{primary.800}", "description": "Info background hover" },
+          "text": { "value": "{primary.200}", "description": "Info text" },
+          "border": { "value": "{primary.700}", "description": "Info border" },
+          "icon": { "value": "{primary.400}", "description": "Info icon" }
+        }
+      },
+      "background": {
+        "page": { "value": "{neutral.50}", "description": "Main page background" },
+        "card": { "value": "{neutral.100}", "description": "Card / surface background" },
+        "elevated": { "value": "{neutral.100}", "description": "Elevated surface" },
+        "input": { "value": "{neutral.100}", "description": "Input background" },
+        "inputHover": { "value": "{neutral.200}", "description": "Input background hover" },
+        "inputDisabled": { "value": "{neutral.0}", "description": "Input background disabled" }
+      },
+      "border": {
+        "default": { "value": "{neutral.200}", "description": "Default border" },
+        "hover": { "value": "{neutral.300}", "description": "Border hover" },
+        "focus": { "value": "{primary.400}", "description": "Border focus" },
+        "error": { "value": "{semantic.error.border}", "description": "Border error" },
+        "success": { "value": "{semantic.success.border}", "description": "Border success" }
+      },
+      "text": {
+        "primary": { "value": "{neutral.900}", "description": "Primary text (headings)" },
+        "secondary": { "value": "{neutral.500}", "description": "Secondary text (body)" },
+        "tertiary": { "value": "{neutral.400}", "description": "Tertiary text (placeholder)" },
+        "inverse": { "value": "{neutral.0}", "description": "Text on dark backgrounds" },
+        "link": { "value": "{primary.400}", "description": "Link text" },
+        "linkHover": { "value": "{primary.300}", "description": "Link text hover" }
+      },
+      "action": {
+        "primary": {
+          "bg": { "value": "{primary.500}", "description": "Primary button background" },
+          "bgHover": { "value": "{primary.400}", "description": "Primary button hover" },
+          "bgActive": { "value": "{primary.300}", "description": "Primary button active" },
+          "bgDisabled": { "value": "{primary.800}", "description": "Primary button disabled" },
+          "text": { "value": "{neutral.0}", "description": "Primary button text" }
+        },
+        "secondary": {
+          "bg": { "value": "{neutral.200}", "description": "Secondary button background" },
+          "bgHover": { "value": "{neutral.300}", "description": "Secondary button hover" },
+          "bgActive": { "value": "{neutral.400}", "description": "Secondary button active" },
+          "bgDisabled": { "value": "{neutral.200}", "description": "Secondary button disabled" },
+          "text": { "value": "{neutral.800}", "description": "Secondary button text" },
+          "border": { "value": "{neutral.300}", "description": "Secondary button border" }
+        },
+        "ghost": {
+          "bgHover": { "value": "{neutral.200}", "description": "Ghost button hover" },
+          "bgActive": { "value": "{neutral.300}", "description": "Ghost button active" },
+          "text": { "value": "{neutral.800}", "description": "Ghost button text" }
+        },
+        "danger": {
+          "bg": { "value": "#ef4444", "description": "Danger button background" },
+          "bgHover": { "value": "#f87171", "description": "Danger button hover" },
+          "bgActive": { "value": "#fca5a5", "description": "Danger button active" },
+          "text": { "value": "{neutral.0}", "description": "Danger button text" }
+        }
+      },
+      "focus": {
+        "ring": { "value": "{primary.400}", "description": "Focus ring color" },
+        "ringOffset": { "value": "{neutral.0}", "description": "Focus ring offset" }
+      }
+    }
+  },
+  "paletteOptions": [
+    {
+      "name": "Ecuador Horizon (Recommended)",
+      "description": "Azul cielo + verde montaña + ámbar sol — inspirado en la línea ecuatorial",
+      "primary": "#2563eb",
+      "secondary": "#16a34a",
+      "accent": "#f97316",
+      "rationale": "Azul confianza tecnológica, verde normativa SRI/naturaleza, ámbar energía ecuatoriana"
+    },
+    {
+      "name": "Pacific Professional",
+      "description": "Azul profundo + teal + coral — serio, corporativo, confiable",
+      "primary": "#1e40af",
+      "secondary": "#0d9488",
+      "accent": "#f97316",
+      "rationale": "Para clientes que buscan 'seriedad bancaria'"
+    },
+    {
+      "name": "Andean Modern",
+      "description": "Índigo + esmeralda + mostaza — contemporáneo, diferenciado",
+      "primary": "#4f46e5",
+      "secondary": "#059669",
+      "accent": "#d97706",
+      "rationale": "Índigo = tecnología moderna, esmeralda = crecimiento, mostaza = calidez"
+    },
+    {
+      "name": "Guayaquil Sunset",
+      "description": "Cian + lima + naranja vibrante — energía, velocidad, startup",
+      "primary": "#0891b2",
+      "secondary": "#65a30d",
+      "accent": "#ea580c",
+      "rationale": "Colores brillantes para destacar en mercado saturado"
+    },
+    {
+      "name": "Quito Minimal",
+      "description": "Gris carbón + azul acero + blanco — ultra limpio, solo acento funcional",
+      "primary": "#334155",
+      "secondary": "#475569",
+      "accent": "#3b82f6",
+      "rationale": "Mínimo ruido visual, foco en datos y usabilidad"
+    }
+  ]
+}

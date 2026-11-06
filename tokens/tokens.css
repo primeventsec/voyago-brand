@@ -1,0 +1,230 @@
+/* ============================================================
+   VOYAGO — Design Tokens (CSS variables)
+   Importar en globals.css:  @import "./tokens.css";
+   Dark mode por clase:      <html class="dark">
+   ============================================================ */
+
+:root {
+  /* ---------- Tipografía ---------- */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-ui: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* ---------- Superficies ---------- */
+  --bg-page: #fafafa;
+  --bg-card: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-input: #ffffff;
+  --bg-input-hover: #f4f4f5;
+  --bg-input-disabled: #f4f4f5;
+
+  /* ---------- Bordes ---------- */
+  --border-default: #e4e4e7;
+  --border-hover: #d4d4d8;
+  --border-focus: #3b82f6;
+  --border-error: #fca5a5;
+  --border-success: #86efac;
+
+  /* ---------- Texto ---------- */
+  --text-primary: #18181b;
+  --text-secondary: #52525b;
+  --text-tertiary: #a1a1aa;
+  --text-inverse: #ffffff;
+  --text-link: #2563eb;
+  --text-link-hover: #1d4ed8;
+
+  /* ---------- Acciones ---------- */
+  --action-primary-bg: #2563eb;
+  --action-primary-bg-hover: #1d4ed8;
+  --action-primary-bg-active: #1e40af;
+  --action-primary-bg-disabled: #bfdbfe;
+  --action-primary-text: #ffffff;
+
+  --action-secondary-bg: #f4f4f5;
+  --action-secondary-bg-hover: #e4e4e7;
+  --action-secondary-bg-active: #d4d4d8;
+  --action-secondary-text: #3f3f46;
+  --action-secondary-border: #e4e4e7;
+
+  --action-ghost-bg-hover: #f4f4f5;
+  --action-ghost-bg-active: #e4e4e7;
+  --action-ghost-text: #3f3f46;
+
+  --action-danger-bg: #dc2626;
+  --action-danger-bg-hover: #b91c1c;
+  --action-danger-bg-active: #991b1b;
+  --action-danger-text: #ffffff;
+
+  /* ---------- Semánticos ---------- */
+  --success-bg: #dcfce7;
+  --success-bg-hover: #bbf7d0;
+  --success-text: #166534;
+  --success-border: #86efac;
+  --success-icon: #16a34a;
+
+  --warning-bg: #ffedd5;
+  --warning-bg-hover: #fed7aa;
+  --warning-text: #7c2d12;
+  --warning-border: #fdba74;
+  --warning-icon: #ea580c;
+
+  --error-bg: #fef2f2;
+  --error-bg-hover: #fee2e2;
+  --error-text: #991b1b;
+  --error-border: #fca5a5;
+  --error-icon: #dc2626;
+
+  --info-bg: #dbeafe;
+  --info-bg-hover: #bfdbfe;
+  --info-text: #1e40af;
+  --info-border: #93c5fd;
+  --info-icon: #2563eb;
+
+  /* ---------- Foco ---------- */
+  --focus-ring: #60a5fa;
+  --focus-ring-offset: #ffffff;
+
+  /* ---------- Sombras ---------- */
+  --shadow-elev-1: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-elev-2: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-elev-3: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-elev-4: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-elev-5: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* ---------- Layout ---------- */
+  --sidebar-width: 280px;
+  --sidebar-collapsed: 72px;
+  --navbar-height: 64px;
+  --container-max: 1280px;
+  --content-max: 960px;
+}
+
+.dark {
+  /* ---------- Superficies ---------- */
+  --bg-page: #18181b;
+  --bg-card: #27272a;
+  --bg-elevated: #27272a;
+  --bg-input: #27272a;
+  --bg-input-hover: #3f3f46;
+  --bg-input-disabled: #09090b;
+
+  /* ---------- Bordes ---------- */
+  --border-default: #3f3f46;
+  --border-hover: #52525b;
+  --border-focus: #60a5fa;
+  --border-error: #b91c1c;
+  --border-success: #15803d;
+
+  /* ---------- Texto ---------- */
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #71717a;
+  --text-inverse: #09090b;
+  --text-link: #60a5fa;
+  --text-link-hover: #93c5fd;
+
+  /* ---------- Acciones ---------- */
+  --action-primary-bg: #3b82f6;
+  --action-primary-bg-hover: #2563eb;
+  --action-primary-bg-active: #1d4ed8;
+  --action-primary-bg-disabled: #1e40af;
+  --action-primary-text: #ffffff;
+
+  --action-secondary-bg: #3f3f46;
+  --action-secondary-bg-hover: #52525b;
+  --action-secondary-bg-active: #71717a;
+  --action-secondary-text: #f4f4f5;
+  --action-secondary-border: #52525b;
+
+  --action-ghost-bg-hover: #3f3f46;
+  --action-ghost-bg-active: #52525b;
+  --action-ghost-text: #f4f4f5;
+
+  --action-danger-bg: #ef4444;
+  --action-danger-bg-hover: #f87171;
+  --action-danger-bg-active: #fca5a5;
+  --action-danger-text: #ffffff;
+
+  /* ---------- Semánticos ---------- */
+  --success-bg: #14532d;
+  --success-bg-hover: #166534;
+  --success-text: #bbf7d0;
+  --success-border: #15803d;
+  --success-icon: #4ade80;
+
+  --warning-bg: #7c2d12;
+  --warning-bg-hover: #9a3412;
+  --warning-text: #ffedd5;
+  --warning-border: #c2410c;
+  --warning-icon: #fb923c;
+
+  --error-bg: #450a0a;
+  --error-bg-hover: #7f1d1d;
+  --error-text: #fca5a5;
+  --error-border: #b91c1c;
+  --error-icon: #f87171;
+
+  --info-bg: #1e3a8a;
+  --info-bg-hover: #1e40af;
+  --info-text: #bfdbfe;
+  --info-border: #1d4ed8;
+  --info-icon: #60a5fa;
+
+  /* ---------- Foco ---------- */
+  --focus-ring: #60a5fa;
+  --focus-ring-offset: #18181b;
+
+  /* ---------- Sombras (más opacas en dark) ---------- */
+  --shadow-elev-1: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-elev-2: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+  --shadow-elev-3: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-elev-4: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+  --shadow-elev-5: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+}
+
+/* ---------- Base ---------- */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: clamp(1rem, 0.25vw + 0.875rem, 1.125rem);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+code, kbd, samp, pre, .tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Números de comprobante, RUC y montos siempre alineados */
+.amount {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+/* Foco visible obligatorio (accesibilidad) */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

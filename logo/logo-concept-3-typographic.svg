@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <!-- VOYAGO Logo Concept 3: "Typographic Mark" -->
+  <!-- Wordmark-focused, clean, professional, highly legible -->
+  <!-- Uses Space Grotesk (display) + custom ligature for 'V' + 'O' -->
+
+  <defs>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="40%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Main wordmark -->
+  <text x="20" y="85" font-family="Space Grotesk, system-ui, sans-serif" font-size="72" font-weight="700" fill="url(#textGradient)" letter-spacing="-0.02em">
+    VOYAGO
+  </text>
+
+  <!-- Accent underline (equator line) -->
+  <path d="M20 90 Q200 85 380 90" stroke="url(#accentLine)" stroke-width="4" fill="none" stroke-linecap="round">
+    <animate attributeName="stroke-dashoffset" from="360" to="0" dur="1.5s" fill="freeze"/>
+  </path>
+
+  <!-- Small dot on the 'V' (location pin / equator marker) -->
+  <circle cx="38" cy="48" r="4" fill="#f97316">
+    <animate attributeName="r" from="0" to="4" dur="0.3s" begin="1.5s" fill="freeze"/>
+  </circle>
+
+  <!-- Tagline (optional) -->
+  <text x="20" y="110" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="400" fill="#71717a" letter-spacing="0.05em" text-transform="uppercase">
+    ERP que habla ecuatoriano
+  </text>
+</svg>
