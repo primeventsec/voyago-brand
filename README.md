@@ -60,7 +60,23 @@ brand/
 
 ---
 
-## Cómo publicarlo en la nube
+## Está publicado aquí (público, sin login)
+
+| Qué | URL |
+|---|---|
+| **Showcase visual** (todo el sistema en una página) | https://files.catbox.moe/su2mnl.html |
+| **AI PACK** — brief + prompts + guía en un solo texto | https://files.catbox.moe/d9831t.txt |
+| **Dashboard mockup** (navegable) | https://files.catbox.moe/z18tor.html |
+| **Guía de marca PDF** | https://files.catbox.moe/uyxqsw.pdf |
+| **Dashboard render** (PNG 1440px) | https://files.catbox.moe/qfse7f.png |
+| **Paquete completo** (zip, 45 archivos) | https://files.catbox.moe/v4t45e.zip |
+
+Pasa la URL del **AI PACK** a cualquier IA que no pueda leer archivos: es texto plano, 25 KB, con todos los HEX y reglas dentro.
+
+
+---
+
+## Cómo publicarlo en GitHub (recomendado a mediano plazo)
 
 ```bash
 cd brand

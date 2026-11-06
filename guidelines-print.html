@@ -1,0 +1,457 @@
+<!DOCTYPE html><html lang="es-EC"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=IBM+Plex+Sans:wght@300..700&family=IBM+Plex+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 18mm 16mm 16mm 16mm; }
+@page :first { margin: 0; }
+* { box-sizing: border-box; }
+body { font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 10.5pt; line-height: 1.55; color: #18181b; margin: 0; }
+.cover { page-break-after: always; height: 297mm; background: #09090b; color: #fff; padding: 40mm 22mm; display: flex; flex-direction: column; justify-content: center; }
+.cover .eq { width: 90px; height: 5px; background: #f97316; border-radius: 99px; margin-bottom: 22px; }
+.cover .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 9pt; letter-spacing: .14em; text-transform: uppercase; color: #a1a1aa; margin-bottom: 10px; }
+.cover h1.brand { font-family: 'Space Grotesk', sans-serif; font-size: 58pt; line-height: 1; margin: 0 0 10px; color: #fff; letter-spacing: -.02em; }
+.cover .tag { font-size: 14pt; color: #a1a1aa; margin: 0 0 28px; }
+.covermark { margin-top: 10px; }
+h1 { font-family: 'Space Grotesk', sans-serif; font-size: 17pt; color: #18181b; border-bottom: 2px solid #2563eb; padding-bottom: 5px; margin: 22px 0 10px; page-break-after: avoid; }
+h2 { font-family: 'Space Grotesk', sans-serif; font-size: 13pt; margin: 18px 0 8px; color: #1e40af; page-break-after: avoid; }
+h3 { font-family: 'Space Grotesk', sans-serif; font-size: 11pt; margin: 14px 0 6px; page-break-after: avoid; }
+p { margin: 6px 0; }
+ul, ol { margin: 6px 0 6px 0; padding-left: 18px; }
+li { margin: 2px 0; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 9pt; page-break-inside: avoid; }
+th { background: #f4f4f5; text-align: left; padding: 6px 8px; border: 1px solid #e4e4e7; font-weight: 600; }
+td { padding: 5px 8px; border: 1px solid #e4e4e7; vertical-align: top; }
+tr:nth-child(even) td { background: #fafafa; }
+code { font-family: 'IBM Plex Mono', monospace; font-size: 8.5pt; background: #f4f4f5; padding: 1px 4px; border-radius: 3px; }
+pre { background: #f4f4f5; padding: 10px; border-radius: 6px; overflow-x: auto; page-break-inside: avoid; }
+pre code { background: none; padding: 0; }
+hr { border: none; border-top: 1px solid #e4e4e7; margin: 16px 0; }
+blockquote { border-left: 3px solid #2563eb; margin: 8px 0; padding: 2px 0 2px 12px; color: #52525b; }
+em { color: #52525b; }
+</style></head><body>
+<div class="cover">
+  <div class="eq"></div>
+  <div class="eyebrow">Sistema de marca · v1.0</div>
+  <h1 class="brand">VOYAGO</h1>
+  <p class="tag">El ERP que habla ecuatoriano</p>
+  <div class="covermark">
+    <svg viewBox="0 0 200 200" width="120" height="120"><circle cx="100" cy="74" r="30" fill="#f97316"/><line x1="16" y1="120" x2="184" y2="120" stroke="#f97316" stroke-width="10" stroke-linecap="round"/></svg>
+  </div>
+</div>
+<h1>VOYAGO — Guía de Marca v1.0</h1>
+<p><em>El ERP que habla ecuatoriano</em></p>
+<hr />
+<h2>1. Estrategia</h2>
+<p><strong>Posicionamiento.</strong> VOYAGO es el ERP que se comporta como si hubiera sido escrito en Ecuador: valida RUC contra el SRI en vivo, emite comprobantes autorizados y trae el plan contable local ya configurado. No hay que adaptarlo; ya está adaptado.</p>
+<p><strong>Audiencia.</strong>
+- <strong>Contador</strong> — pasa 6 horas al día dentro del sistema. Necesita densidad, atajos y números que cuadren.
+- <strong>Administrador</strong> — controla cobros, stock y personal. Necesita alertas, no reportes.
+- <strong>Dueño</strong> — abre la app dos veces al día en el celular. Necesita 4 cifras, no 20.</p>
+<p><strong>Personalidad.</strong> Profesional sin rigidez. Preciso sin frialdad. Local sin folclor.</p>
+<table>
+<thead>
+<tr>
+<th>Somos</th>
+<th>No somos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claros</td>
+<td>Simplones</td>
+</tr>
+<tr>
+<td>Técnicos</td>
+<td>Incomprensibles</td>
+</tr>
+<tr>
+<td>Cercanos</td>
+<td>Informales</td>
+</tr>
+<tr>
+<td>Ecuatorianos</td>
+<td>Costumbristas</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>2. Logotipo</h2>
+<p>El símbolo es una <strong>línea de horizonte cruzada por la línea ecuatorial, con un sol al centro</strong>. La línea horizontal es el corazón de la marca: representa el paralelo cero y, a la vez, la línea de datos que atraviesa todos los módulos.</p>
+<p><strong>Construcción.</strong> Círculo contenedor de 2px, línea ecuatorial de 4px en <code>#f97316</code>, disco solar de radio 24/200 en <code>#f97316</code>. Grilla base de 200×200.</p>
+<p><strong>Área de resguardo.</strong> Igual a la altura del disco solar a cada lado del logotipo. Nada entra ahí: ni texto, ni bordes, ni otras marcas.</p>
+<p><strong>Tamaños mínimos.</strong>
+- Isotipo solo: 24px (favicon 32px ya es cómodo).
+- Lockup horizontal completo: 120px de ancho.
+- Por debajo de 120px se usa <strong>solo el isotipo</strong>.</p>
+<p><strong>Variantes obligatorias.</strong> Horizontal (isotipo + wordmark), stacked, isotipo solo, monocromo blanco, monocromo negro.</p>
+<p><strong>Usos incorrectos.</strong>
+1. Estirar o comprimir el logotipo.
+2. Rotarlo o inclinarlo.
+3. Cambiar el naranja de la línea por otro color.
+4. Ponerlo sobre una foto sin velo de contraste.
+5. Añadir sombra, bisel o degradado.
+6. Reconstruir el wordmark con otra tipografía que no sea Space Grotesk.</p>
+<hr />
+<h2>3. Color</h2>
+<h3>Paleta de marca</h3>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>HEX</th>
+<th>RGB</th>
+<th>CMYK aprox.</th>
+<th>Dónde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Primary 600</td>
+<td><code>#2563eb</code></td>
+<td>37 99 235</td>
+<td>84 58 0 8</td>
+<td>Botón primario, link, foco</td>
+</tr>
+<tr>
+<td>Primary 700</td>
+<td><code>#1d4ed8</code></td>
+<td>29 78 216</td>
+<td>87 64 0 15</td>
+<td>Hover del primario</td>
+</tr>
+<tr>
+<td>Primary 800</td>
+<td><code>#1e40af</code></td>
+<td>30 64 175</td>
+<td>90 73 0 31</td>
+<td>Texto de marca sobre claro</td>
+</tr>
+<tr>
+<td>Secondary 600</td>
+<td><code>#16a34a</code></td>
+<td>22 163 74</td>
+<td>87 0 55 36</td>
+<td>Éxito, "Autorizado"</td>
+</tr>
+<tr>
+<td>Accent 500</td>
+<td><code>#f97316</code></td>
+<td>249 115 22</td>
+<td>0 54 91 2</td>
+<td>CTA de conversión, alertas</td>
+</tr>
+<tr>
+<td>Neutral 900</td>
+<td><code>#18181b</code></td>
+<td>24 24 27</td>
+<td>0 0 0 91</td>
+<td>Texto principal</td>
+</tr>
+<tr>
+<td>Neutral 50</td>
+<td><code>#fafafa</code></td>
+<td>250 250 250</td>
+<td>0 0 0 2</td>
+<td>Fondo de página</td>
+</tr>
+</tbody>
+</table>
+<h3>Regla del acento</h3>
+<p>El naranja <code>#f97316</code> se usa <strong>en tres lugares y en ningún otro</strong>:
+1. La línea ecuatorial del logotipo.
+2. <strong>Un</strong> botón de conversión por pantalla.
+3. Alertas de atención (stock bajo, factura por vencer, comprobante en proceso).</p>
+<p>Nunca en texto corrido, nunca en bordes decorativos, nunca como fondo de sección completa.</p>
+<h3>Contraste (WCAG AA)</h3>
+<table>
+<thead>
+<tr>
+<th>Combinación</th>
+<th>Ratio</th>
+<th>Veredicto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>#18181b</code> sobre <code>#fafafa</code></td>
+<td>16.1:1</td>
+<td>✅ AAA</td>
+</tr>
+<tr>
+<td><code>#52525b</code> sobre <code>#fafafa</code></td>
+<td>7.4:1</td>
+<td>✅ AAA</td>
+</tr>
+<tr>
+<td><code>#ffffff</code> sobre <code>#2563eb</code></td>
+<td>5.9:1</td>
+<td>✅ AA</td>
+</tr>
+<tr>
+<td><code>#ffffff</code> sobre <code>#16a34a</code></td>
+<td>3.1:1</td>
+<td>⚠️ Solo texto ≥18px bold o elementos de UI</td>
+</tr>
+<tr>
+<td><code>#ffffff</code> sobre <code>#f97316</code></td>
+<td>3.5:1</td>
+<td>⚠️ Solo ≥18px bold. Para texto pequeño usar <code>#7c2d12</code> sobre <code>#ffedd5</code></td>
+</tr>
+<tr>
+<td><code>#166534</code> sobre <code>#dcfce7</code></td>
+<td>9.2:1</td>
+<td>✅ AAA</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>4. Tipografía</h2>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>Familia</th>
+<th>Pesos</th>
+<th>Dónde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Display</td>
+<td>Space Grotesk</td>
+<td>500, 600, 700</td>
+<td>H1–H4, landing, wordmark</td>
+</tr>
+<tr>
+<td>UI</td>
+<td>IBM Plex Sans</td>
+<td>400, 500, 600, 700</td>
+<td>Cuerpo, formularios, tablas</td>
+</tr>
+<tr>
+<td>Mono</td>
+<td>IBM Plex Mono</td>
+<td>400, 500</td>
+<td>RUC, números de comprobante, montos, código</td>
+</tr>
+</tbody>
+</table>
+<p>Las tres son <strong>gratuitas y variables</strong> (Google Fonts, SIL OFL). No sustituir sin decisión explícita.</p>
+<h3>Jerarquía</h3>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Tamaño</th>
+<th>Peso</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>display-2xl</td>
+<td>clamp 40→80px</td>
+<td>700</td>
+<td>Hero H1</td>
+</tr>
+<tr>
+<td>display-xl</td>
+<td>clamp 32→56px</td>
+<td>700</td>
+<td>H1 de página</td>
+</tr>
+<tr>
+<td>display-lg</td>
+<td>clamp 28→40px</td>
+<td>600</td>
+<td>H2</td>
+</tr>
+<tr>
+<td>display-md</td>
+<td>clamp 24→32px</td>
+<td>600</td>
+<td>H3, título de widget</td>
+</tr>
+<tr>
+<td>heading-lg</td>
+<td>clamp 20→24px</td>
+<td>600</td>
+<td>Título de card</td>
+</tr>
+<tr>
+<td>body-lg</td>
+<td>clamp 16→18px</td>
+<td>400</td>
+<td>Párrafo</td>
+</tr>
+<tr>
+<td>body-md</td>
+<td>clamp 15→16px</td>
+<td>400</td>
+<td>Celda de tabla</td>
+</tr>
+<tr>
+<td>body-sm</td>
+<td>clamp 14→15px</td>
+<td>400</td>
+<td>Texto de apoyo</td>
+</tr>
+<tr>
+<td>body-xs</td>
+<td>clamp 12→13px</td>
+<td>400</td>
+<td>Caption, timestamp</td>
+</tr>
+<tr>
+<td>code-sm</td>
+<td>clamp 13→14px</td>
+<td>400</td>
+<td>Número de comprobante</td>
+</tr>
+</tbody>
+</table>
+<p>Mínimo en móvil: <strong>12px</strong> (solo caption). Cuerpo nunca por debajo de <strong>15px</strong>.</p>
+<hr />
+<h2>5. Espaciado y retícula</h2>
+<p>Escala base <strong>4px</strong>: <code>4 · 8 · 12 · 16 · 20 · 24 · 32 · 40 · 48 · 64</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Breakpoint</th>
+<th>Ancho</th>
+<th>Qué cambia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sm</td>
+<td>640px</td>
+<td>Una columna usable</td>
+</tr>
+<tr>
+<td>md</td>
+<td>768px</td>
+<td><strong>El sidebar colapsa a 72px</strong></td>
+</tr>
+<tr>
+<td>lg</td>
+<td>1024px</td>
+<td>Sidebar completo 280px</td>
+</tr>
+<tr>
+<td>xl</td>
+<td>1280px</td>
+<td>Ancho máximo de contenedor</td>
+</tr>
+<tr>
+<td>2xl</td>
+<td>1536px</td>
+<td>Contenido centrado, márgenes amplios</td>
+</tr>
+</tbody>
+</table>
+<p>Sidebar 280px / 72px colapsado. Navbar 64px. Padding de contenedor 24px. Separación entre secciones 64px.</p>
+<hr />
+<h2>6. Componentes</h2>
+<h3>Botón</h3>
+<table>
+<thead>
+<tr>
+<th>Variante</th>
+<th>Fondo</th>
+<th>Texto</th>
+<th>Borde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>primary</td>
+<td><code>#2563eb</code> → hover <code>#1d4ed8</code></td>
+<td><code>#ffffff</code></td>
+<td>ninguno</td>
+</tr>
+<tr>
+<td>secondary</td>
+<td><code>#f4f4f5</code> → hover <code>#e4e4e7</code></td>
+<td><code>#3f3f46</code></td>
+<td><code>#e4e4e7</code></td>
+</tr>
+<tr>
+<td>ghost</td>
+<td>transparente → hover <code>#f4f4f5</code></td>
+<td><code>#3f3f46</code></td>
+<td>ninguno</td>
+</tr>
+<tr>
+<td>danger</td>
+<td><code>#dc2626</code> → hover <code>#b91c1c</code></td>
+<td><code>#ffffff</code></td>
+<td>ninguno</td>
+</tr>
+</tbody>
+</table>
+<p>Alturas: sm 32px · md 40px · lg 48px. Radio 4px. Focus: anillo de 3px al 40% de opacidad. Loading: spinner reemplaza el contenido, ancho se mantiene.</p>
+<h3>Input</h3>
+<p>Alto 40px, radio 4px, borde <code>#e4e4e7</code>, fondo blanco. Focus: borde <code>#3b82f6</code> + anillo de 3px. Error: borde <code>#fca5a5</code> + texto de error en <code>#991b1b</code> con icono. Disabled: fondo <code>#f4f4f5</code>, opacidad 50%.</p>
+<h3>Tabla</h3>
+<p>Cabecera sobre <code>#f4f4f5</code>, texto <code>#71717a</code> en mayúsculas 12px. Filas alternas con <code>#fafafa</code> al 50%. Celdas 12px/16px de padding. <strong>Montos siempre a la derecha, monoespaciados, tabulares.</strong> Nunca más de 7 columnas visibles sin scroll horizontal propio.</p>
+<h3>Badge de estado</h3>
+<table>
+<thead>
+<tr>
+<th>Estado</th>
+<th>Fondo</th>
+<th>Texto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Autorizado</td>
+<td><code>#dcfce7</code></td>
+<td><code>#166534</code></td>
+</tr>
+<tr>
+<td>En proceso</td>
+<td><code>#ffedd5</code></td>
+<td><code>#7c2d12</code></td>
+</tr>
+<tr>
+<td>Rechazado</td>
+<td><code>#fef2f2</code></td>
+<td><code>#991b1b</code></td>
+</tr>
+<tr>
+<td>Anulado</td>
+<td><code>#f4f4f5</code></td>
+<td><code>#52525b</code></td>
+</tr>
+</tbody>
+</table>
+<p>Siempre con punto de color a la izquierda. Radio completo (pill).</p>
+<h3>Modal</h3>
+<p>Máximo 560px, radio 12px, sombra <code>elev-5</code>, overlay negro al 50% con blur de 4px. Título 24px, acciones alineadas a la derecha, botón primario a la derecha del secundario.</p>
+<hr />
+<h2>7. Iconografía</h2>
+<p>Grilla 24×24, trazo 2px, <code>stroke-linecap: round</code>, <code>stroke-linejoin: round</code>, esquinas coherentes con el radio de 4px del logo. Estilo outline por defecto; versión fill solo para estados activos de navegación.</p>
+<p>Set propio cubre lo que Lucide no tiene bien: factura, RUC, SRI, comprobante, retención, los cinco módulos. El resto (flechas, chevrons, búsqueda) se toma de <strong>Lucide</strong>.</p>
+<hr />
+<h2>8. Voz y tono</h2>
+<ol>
+<li><strong>Concreto antes que adjetivo.</strong> "Factura autorizada en 3 segundos" ≠ "facturación ágil y eficiente".</li>
+<li><strong>Segunda persona, sin usted.</strong> "Tu contador", "tu stock", "tus clientes".</li>
+<li><strong>Un dato por frase.</strong> El usuario escanea, no lee.</li>
+<li><strong>Cero jerga de marketing.</strong> Nada de "sinergia", "ecosistema 360", "transformación digital", "revoluciona".</li>
+<li><strong>Números reales.</strong> Si dices "3 segundos", tiene que tardar 3 segundos.</li>
+</ol>
+<p><strong>Sí:</strong> "Validación de RUC en vivo" · "Tu contador lo va a entender" · "Sin instalar nada" · "Hecho en Ecuador para empresas ecuatorianas"
+<strong>No:</strong> "Revoluciona tu negocio" · "Solución integral 360" · "Potencia tu sinergia empresarial" · "Llevamos tu empresa al siguiente nivel"</p>
+<hr />
+<h2>9. Aplicación</h2>
+<ul>
+<li><strong>Landing:</strong> fondo <code>#fafafa</code>, hero con titular en Space Grotesk 700, captura real del dashboard (nunca mockup falso con texto ilegible).</li>
+<li><strong>Dashboard:</strong> sidebar oscuro solo si toda la app es dark; por defecto sidebar claro <code>#ffffff</code> sobre página <code>#fafafa</code>.</li>
+<li><strong>Factura PDF:</strong> encabezado con logo monocromo, RUC en mono, totales alineados a la derecha, sin colores de marca en el cuerpo del documento (impresión).</li>
+<li><strong>Redes:</strong> un mensaje por pieza, logo abajo a la derecha, 10% de margen seguro.</li>
+<li><strong>Merch:</strong> logo bordado pequeño al pecho izquierdo; nunca grande al centro.</li>
+</ul>
+<hr />
+<p><em>VOYAGO Brand Guidelines v1.0 — documento vivo. Si un valor no está aquí, no inventarlo: preguntar.</em></p></body></html>

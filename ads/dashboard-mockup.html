@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+<meta charset="UTF-8">
+<title>VOYAGO — Dashboard (mockup)</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2563eb; --primary-700:#1d4ed8; --primary-800:#1e40af; --primary-50:#eff6ff;
+    --green:#16a34a; --green-bg:#dcfce7; --green-tx:#166534;
+    --orange:#f97316; --amber-bg:#ffedd5; --amber-tx:#7c2d12;
+    --page:#fafafa; --card:#ffffff; --border:#e4e4e7; --hover:#f4f4f5;
+    --tx:#18181b; --tx2:#52525b; --tx3:#a1a1aa; --ink:#09090b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'IBM Plex Sans',system-ui,sans-serif;background:var(--page);color:var(--tx);
+       -webkit-font-smoothing:antialiased;font-size:14px;line-height:1.5}
+  .mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+
+  /* ---------- layout ---------- */
+  .app{display:flex;min-height:100vh}
+  .sidebar{width:280px;flex-shrink:0;background:var(--card);border-right:1px solid var(--border);
+           display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+  .brand{height:64px;display:flex;align-items:center;gap:10px;padding:0 20px;border-bottom:1px solid var(--border)}
+  .brand svg{width:28px;height:28px;flex-shrink:0}
+  .brand span{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em}
+  .nav{padding:16px 12px;flex:1;overflow:auto}
+  .nav .lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);font-weight:600;padding:0 10px;margin:14px 0 6px}
+  .item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:6px;color:var(--tx2);
+        font-weight:500;font-size:13.5px;cursor:default}
+  .item svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+  .item.active{background:var(--primary-50);color:var(--primary-800);font-weight:600}
+  .item .cnt{margin-left:auto;font-size:11px;font-weight:600;background:var(--hover);color:var(--tx2);
+             padding:1px 7px;border-radius:99px}
+  .item.active .cnt{background:var(--primary);color:#fff}
+  .sidefoot{border-top:1px solid var(--border);padding:12px}
+  .userbox{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:6px}
+  .avatar{width:32px;height:32px;border-radius:99px;background:var(--primary-800);color:#fff;
+          display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;flex-shrink:0}
+  .userbox .nm{font-size:13px;font-weight:600;line-height:1.2}
+  .userbox .rl{font-size:11px;color:var(--tx3)}
+
+  .main{flex:1;min-width:0}
+  .navtop{height:64px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);
+          border-bottom:1px solid var(--border);display:flex;align-items:center;
+          justify-content:space-between;padding:0 24px;position:sticky;top:0;z-index:10}
+  .navtop h1{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600}
+  .navtop .right{display:flex;align-items:center;gap:10px}
+  .iconbtn{width:36px;height:36px;border-radius:6px;border:none;background:transparent;
+           display:flex;align-items:center;justify-content:center;color:var(--tx2);position:relative}
+  .iconbtn svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .dot{position:absolute;top:7px;right:8px;width:7px;height:7px;border-radius:99px;background:#dc2626;border:1.5px solid #fff}
+
+  .content{padding:24px;max-width:1280px}
+  .pagehead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:20px}
+  .pagehead h2{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600}
+  .pagehead p{color:var(--tx2);font-size:13.5px;margin-top:2px}
+  .btn{height:38px;padding:0 14px;border-radius:4px;font-size:14px;font-weight:600;
+       font-family:'IBM Plex Sans';border:none;display:inline-flex;align-items:center;gap:7px}
+  .btn-p{background:var(--primary);color:#fff}
+  .btn-s{background:var(--hover);color:#3f3f46;border:1px solid var(--border)}
+  .btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+  /* ---------- KPIs ---------- */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+  .kpi{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
+  .kpi .k{font-size:12px;color:var(--tx2);font-weight:500;display:flex;align-items:center;gap:6px}
+  .kpi .k svg{width:14px;height:14px;stroke:var(--tx3);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .kpi .v{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;letter-spacing:-.02em;margin:6px 0 2px}
+  .kpi .v.m{font-family:'IBM Plex Mono',monospace;font-size:25px;font-variant-numeric:tabular-nums}
+  .kpi .d{font-size:11.5px;color:var(--tx3)}
+  .kpi .d b{color:var(--green);font-weight:600}
+  .kpi .d b.w{color:#c2410c}
+
+  /* ---------- panels ---------- */
+  .grid2{display:grid;grid-template-columns:1.55fr 1fr;gap:14px}
+  .panel{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+  .panel .hd{display:flex;align-items:center;justify-content:space-between;
+             padding:14px 18px;border-bottom:1px solid var(--border)}
+  .panel .hd h3{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600}
+  .panel .hd a{font-size:12.5px;color:var(--primary);font-weight:600;text-decoration:none}
+
+  table{width:100%;border-collapse:collapse}
+  th{background:var(--hover);font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;
+     color:#71717a;font-weight:600;text-align:left;padding:10px 14px}
+  td{padding:11px 14px;font-size:13px;border-top:1px solid var(--border);color:var(--tx2)}
+  td.id{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--tx);font-weight:500}
+  td.num{text-align:right;font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;
+         color:var(--tx);font-weight:500;font-size:13px}
+  th.num{text-align:right}
+  .badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:99px;
+         font-size:11px;font-weight:600}
+  .badge i{width:5px;height:5px;border-radius:99px;background:currentColor;display:block}
+  .b-ok{background:var(--green-bg);color:var(--green-tx)}
+  .b-wa{background:var(--amber-bg);color:var(--amber-tx)}
+  .b-er{background:#fef2f2;color:#991b1b}
+
+  /* stock list */
+  .stock{padding:6px 0}
+  .srow{display:flex;align-items:center;gap:12px;padding:11px 18px}
+  .srow+.srow{border-top:1px solid var(--border)}
+  .srow .sq{width:34px;height:34px;border-radius:6px;background:var(--hover);flex-shrink:0;
+            display:flex;align-items:center;justify-content:center}
+  .srow .sq svg{width:16px;height:16px;stroke:var(--tx3);fill:none;stroke-width:2}
+  .srow .info{flex:1;min-width:0}
+  .srow .nm{font-size:13px;font-weight:600;color:var(--tx);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .srow .sub{font-size:11px;color:var(--tx3)}
+  .srow .qty{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600}
+  .srow .qty.low{color:#b91c1c}
+
+  /* mini chart */
+  .chartbox{padding:16px 18px 8px}
+  .chartfoot{display:flex;justify-content:space-between;padding:10px 18px 16px;
+             font-size:11px;color:var(--tx3);font-family:'IBM Plex Mono',monospace}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <svg viewBox="0 0 200 200"><circle cx="100" cy="74" r="30" fill="#f97316"/><line x1="16" y1="120" x2="184" y2="120" stroke="#f97316" stroke-width="10" stroke-linecap="round"/></svg>
+      <span>VOYAGO</span>
+    </div>
+
+    <nav class="nav">
+      <div class="lbl">Operación</div>
+      <div class="item active">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Facturación <span class="cnt">12</span>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        Inventario <span class="cnt">7</span>
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/><line x1="8" y1="2" x2="8" y2="22"/><line x1="16" y1="2" x2="16" y2="22"/></svg>
+        Contabilidad
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        CRM
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+        RRHH
+      </div>
+
+      <div class="lbl">Análisis</div>
+      <div class="item">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+        Reportes
+      </div>
+      <div class="item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Configuración
+      </div>
+    </nav>
+
+    <div class="sidefoot">
+      <div class="userbox">
+        <div class="avatar">RP</div>
+        <div>
+          <div class="nm">Rubén Pantoja</div>
+          <div class="rl">Administrador</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="navtop">
+      <h1>Dashboard</h1>
+      <div class="right">
+        <button class="iconbtn">
+          <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="dot"></span>
+        </button>
+        <button class="btn btn-s">Enero 2026</button>
+        <button class="btn btn-p">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Nueva factura
+        </button>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="pagehead">
+        <div>
+          <h2>Resumen de enero</h2>
+          <p>Comprobantes emitidos, cobros pendientes y estado del inventario.</p>
+        </div>
+      </div>
+
+      <div class="kpis">
+        <div class="kpi">
+          <div class="k"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Facturas del mes</div>
+          <div class="v">1,247</div>
+          <div class="d"><b>+12%</b> vs diciembre</div>
+        </div>
+        <div class="kpi">
+          <div class="k"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Ingresos</div>
+          <div class="v m">$127,450</div>
+          <div class="d"><b>+8.3%</b> vs diciembre</div>
+        </div>
+        <div class="kpi">
+          <div class="k"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Pendiente de cobro</div>
+          <div class="v m">$23,180</div>
+          <div class="d"><b class="w">12 facturas vencidas</b></div>
+        </div>
+        <div class="kpi">
+          <div class="k"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>Stock bajo mínimo</div>
+          <div class="v">7</div>
+          <div class="d">Requieren reorden</div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="panel">
+          <div class="hd">
+            <h3>Últimas facturas emitidas</h3>
+            <a href="#">Ver todas →</a>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Comprobante</th><th>Cliente</th><th>Fecha</th>
+                <th class="num">Total</th><th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="id">FAC-001-00001247</td><td>Constructora Andes S.A.</td><td>15/01/2026</td><td class="num">12,450.00</td><td><span class="badge b-ok"><i></i>Autorizado</span></td></tr>
+              <tr><td class="id">FAC-001-00001246</td><td>Distribuidora Costa S.A.</td><td>14/01/2026</td><td class="num">8,720.50</td><td><span class="badge b-ok"><i></i>Autorizado</span></td></tr>
+              <tr><td class="id">NCR-001-00000089</td><td>Servicios Médicos Quito</td><td>14/01/2026</td><td class="num">3,100.00</td><td><span class="badge b-wa"><i></i>En proceso</span></td></tr>
+              <tr><td class="id">FAC-001-00001245</td><td>Importadora Pacífico</td><td>13/01/2026</td><td class="num">45,800.00</td><td><span class="badge b-ok"><i></i>Autorizado</span></td></tr>
+              <tr><td class="id">RET-001-00000412</td><td>Tecnología Andina Cía.</td><td>13/01/2026</td><td class="num">1,204.80</td><td><span class="badge b-ok"><i></i>Autorizado</span></td></tr>
+              <tr><td class="id">FAC-001-00001244</td><td>Ferretería El Tornillo</td><td>12/01/2026</td><td class="num">876.40</td><td><span class="badge b-er"><i></i>Rechazado</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <div class="panel" style="margin-bottom:14px">
+            <div class="hd"><h3>Facturación diaria</h3><a href="#">Detalle →</a></div>
+            <div class="chartbox">
+              <svg viewBox="0 0 420 150" width="100%" height="150" preserveAspectRatio="none">
+                <line x1="0" y1="120" x2="420" y2="120" stroke="#e4e4e7"/>
+                <line x1="0" y1="80" x2="420" y2="80" stroke="#f4f4f5"/>
+                <line x1="0" y1="40" x2="420" y2="40" stroke="#f4f4f5"/>
+                <g fill="#2563eb">
+                  <rect x="6" y="72" width="18" height="48" rx="2"/>
+                  <rect x="34" y="60" width="18" height="60" rx="2"/>
+                  <rect x="62" y="78" width="18" height="42" rx="2"/>
+                  <rect x="90" y="46" width="18" height="74" rx="2"/>
+                  <rect x="118" y="64" width="18" height="56" rx="2"/>
+                  <rect x="146" y="38" width="18" height="82" rx="2"/>
+                  <rect x="174" y="54" width="18" height="66" rx="2"/>
+                  <rect x="202" y="30" width="18" height="90" rx="2"/>
+                  <rect x="230" y="58" width="18" height="62" rx="2"/>
+                  <rect x="258" y="44" width="18" height="76" rx="2"/>
+                  <rect x="286" y="66" width="18" height="54" rx="2"/>
+                  <rect x="314" y="52" width="18" height="68" rx="2"/>
+                  <rect x="342" y="40" width="18" height="80" rx="2"/>
+                  <rect x="370" y="56" width="18" height="64" rx="2"/>
+                  <rect x="398" y="34" width="18" height="86" rx="2" fill="#f97316"/>
+                </g>
+              </svg>
+            </div>
+            <div class="chartfoot"><span>01 ene</span><span>15 ene</span><span>31 ene</span></div>
+          </div>
+
+          <div class="panel">
+            <div class="hd"><h3>Stock bajo mínimo</h3><a href="#">Ver todo →</a></div>
+            <div class="stock">
+              <div class="srow">
+                <div class="sq"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                <div class="info"><div class="nm">Cable THHN #12 AWG</div><div class="sub">Bodega Norte · mínimo 100</div></div>
+                <div class="qty low">34</div>
+              </div>
+              <div class="srow">
+                <div class="sq"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                <div class="info"><div class="nm">Guantes industriales L</div><div class="sub">Bodega Norte · mínimo 50</div></div>
+                <div class="qty low">12</div>
+              </div>
+              <div class="srow">
+                <div class="sq"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
+                <div class="info"><div class="nm">Pintura epóxica gris</div><div class="sub">Bodega Sur · mínimo 20</div></div>
+                <div class="qty low">5</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VOYAGO — Brand System v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=IBM+Plex+Sans:wght@300..700&family=IBM+Plex+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary-600:#2563eb; --primary-700:#1d4ed8; --primary-800:#1e40af;
+    --secondary-600:#16a34a; --accent-500:#f97316;
+    --n-0:#fff; --n-50:#fafafa; --n-100:#f4f4f5; --n-200:#e4e4e7;
+    --n-400:#a1a1aa; --n-600:#52525b; --n-900:#18181b; --n-950:#09090b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'IBM Plex Sans',system-ui,sans-serif;background:var(--n-50);color:var(--n-900);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Space Grotesk',system-ui,sans-serif;text-wrap:balance;line-height:1.2}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  section{padding:56px 0;border-bottom:1px solid var(--n-200)}
+  .kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--n-400);font-weight:600;margin-bottom:8px}
+  h2{font-size:clamp(24px,3vw,32px);font-weight:600;margin-bottom:8px}
+  .lead{color:var(--n-600);max-width:64ch;margin-bottom:32px}
+  .mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+
+  /* hero */
+  header{background:var(--n-950);color:#fff;padding:72px 0 64px}
+  header .kicker{color:#71717a}
+  header h1{font-size:clamp(36px,6vw,64px);font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+  header p{color:#a1a1aa;font-size:18px;max-width:56ch}
+  .eqline{height:4px;width:120px;background:var(--accent-500);border-radius:99px;margin-bottom:28px}
+
+  /* grid helpers */
+  .g{display:grid;gap:16px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+  .g6{grid-template-columns:repeat(6,minmax(0,1fr))}
+  @media(max-width:720px){.g6{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  .card{background:#fff;border:1px solid var(--n-200);border-radius:8px;padding:24px}
+  .card h4{font-size:16px;font-weight:600;margin-bottom:6px}
+  .card p{font-size:14px;color:var(--n-600)}
+
+  /* logos */
+  .logo-box{display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--n-200);border-radius:8px;padding:32px;min-height:180px}
+  .logo-box.dark{background:var(--n-950);border-color:#27272a}
+
+  /* swatches */
+  .sw{border-radius:8px;overflow:hidden;border:1px solid var(--n-200);background:#fff}
+  .sw .chip{height:72px}
+  .sw .meta{padding:10px 12px}
+  .sw .name{font-size:12px;font-weight:600}
+  .sw .hex{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--n-600)}
+
+  /* type */
+  .typerow{display:flex;align-items:baseline;gap:20px;padding:14px 0;border-bottom:1px dashed var(--n-200)}
+  .typerow .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--n-400);width:110px;flex-shrink:0}
+  .d2xl{font-size:clamp(28px,4vw,44px);font-weight:700;letter-spacing:-.02em;font-family:'Space Grotesk'}
+  .dxl{font-size:32px;font-weight:700;font-family:'Space Grotesk'}
+  .dlg{font-size:26px;font-weight:600;font-family:'Space Grotesk'}
+  .dmd{font-size:22px;font-weight:600;font-family:'Space Grotesk'}
+  .blg{font-size:18px}
+  .bsm{font-size:14px;color:var(--n-600)}
+
+  /* icons */
+  .icongrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px}
+  @media(max-width:720px){.icongrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  .icon-cell{background:#fff;border:1px solid var(--n-200);border-radius:8px;padding:16px 8px;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .icon-cell svg{width:24px;height:24px;opacity:.85}
+  .icon-cell span{font-size:10px;color:var(--n-600);text-align:center;line-height:1.3}
+
+  /* buttons */
+  .btnrow{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .btn{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 16px;border-radius:4px;font-size:15px;font-weight:600;border:none;cursor:pointer;font-family:'IBM Plex Sans'}
+  .b-primary{background:var(--primary-600);color:#fff}
+  .b-secondary{background:var(--n-100);color:#3f3f46;border:1px solid var(--n-200)}
+  .b-ghost{background:transparent;color:#3f3f46}
+  .b-danger{background:#dc2626;color:#fff}
+
+  /* badges */
+  .badges{display:flex;flex-wrap:wrap;gap:8px}
+  .badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600}
+  .badge i{width:6px;height:6px;border-radius:99px;display:block;background:currentColor}
+  .bd-ok{background:#dcfce7;color:#166534}
+  .bd-warn{background:#ffedd5;color:#7c2d12}
+  .bd-err{background:#fef2f2;color:#991b1b}
+  .bd-neutral{background:var(--n-100);color:var(--n-600)}
+
+  /* table demo */
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--n-200);border-radius:8px;overflow:hidden}
+  th{background:var(--n-100);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#71717a;text-align:left;padding:12px 16px;font-weight:600}
+  td{padding:12px 16px;font-size:14px;border-top:1px solid var(--n-200);color:var(--n-600)}
+  td.num{text-align:right;font-family:'IBM Plex Mono',monospace;color:var(--n-900);font-weight:500}
+  td.id{font-family:'IBM Plex Mono',monospace;color:var(--n-900);font-size:13px}
+
+  footer{padding:40px 0;color:var(--n-400);font-size:13px}
+  code{background:var(--n-100);padding:2px 6px;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eqline"></div>
+    <div class="kicker">Sistema de marca · v1.0</div>
+    <h1>VOYAGO</h1>
+    <p>El ERP que habla ecuatoriano. Identidad, tokens y componentes para la plataforma de facturación electrónica, inventario, contabilidad, CRM y RRHH.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">01 · Logotipo</div>
+    <h2>Tres direcciones</h2>
+    <p class="lead">La dirección elegida es la primera: línea ecuatorial sobre horizonte con sol al centro. Las otras dos quedan como referencia del proceso.</p>
+    <div class="g g3">
+      <div>
+        <div class="logo-box"><svg  alt="Concepto 1: Ecuador Horizon" style="width:140px" data-src="logo/logo-concept-1-equator.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- VOYAGO Logo Concept 1: "Ecuador Horizon" -->
+  <!-- Geometric representation of the equatorial line crossing a horizon -->
+  <!-- Primary color: #2563eb (primary-600) -->
+  <!-- Secondary: #16a34a (secondary-600) -->
+  <!-- Accent: #f97316 (accent-500) -->
+
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#1e40af" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="earthGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#15803d" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="sunGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle (optional, for avatar usage) -->
+  <circle cx="100" cy="100" r="96" fill="none" stroke="url(#skyGradient)" stroke-width="2"/>
+
+  <!-- Sky area (upper portion) -->
+  <path d="M20 100 Q100 40 180 100 L180 20 L20 20 Z" fill="url(#skyGradient)" opacity="0.9"/>
+
+  <!-- Equatorial line (the core concept) -->
+  <line x1="20" y1="100" x2="180" y2="100" stroke="#f97316" stroke-width="4" stroke-linecap="round">
+    <animate attributeName="stroke-dashoffset" from="160" to="0" dur="2s" fill="freeze"/>
+  </line>
+
+  <!-- Sun on the equator line -->
+  <circle cx="100" cy="100" r="24" fill="url(#sunGradient)">
+    <animate attributeName="r" from="0" to="24" dur="1.5s" begin="0.5s" fill="freeze"/>
+  </circle>
+
+  <!-- Sun rays -->
+  <g stroke="#f97316" stroke-width="2" stroke-linecap="round" opacity="0.7">
+    <line x1="100" y1="68" x2="100" y2="56"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="100" y1="132" x2="100" y2="144"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="68" y1="100" x2="56" y2="100"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="132" y1="100" x2="144" y2="100"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="76" y1="76" x2="66" y2="66"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="124" y1="76" x2="134" y2="66"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="76" y1="124" x2="66" y2="134"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="124" y1="124" x2="134" y2="134"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+  </g>
+
+  <!-- Earth/Mountain base (lower portion) -->
+  <path d="M20 100 Q100 160 180 100 L180 180 L20 180 Z" fill="url(#earthGradient)" opacity="0.9"/>
+
+  <!-- Data points flowing along equator (tech feel) -->
+  <g fill="#f97316" opacity="0.8">
+    <circle cx="40" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.5s" fill="freeze"/></circle>
+    <circle cx="70" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.6s" fill="freeze"/></circle>
+    <circle cx="130" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.7s" fill="freeze"/></circle>
+    <circle cx="160" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.8s" fill="freeze"/></circle>
+  </g>
+
+  <!-- Subtle arrowheads on equator line (direction/flow) -->
+  <g fill="#f97316" opacity="0.6">
+    <polygon points="55,95 55,105 65,100"><animate attributeName="opacity" from="0" to="0.6" dur="0.5s" begin="2s" fill="freeze"/></polygon>
+    <polygon points="135,95 135,105 145,100"><animate attributeName="opacity" from="0" to="0.6" dur="0.5s" begin="2.1s" fill="freeze"/></polygon>
+  </g>
+</svg></div>
+        <p style="font-size:13px;margin-top:10px"><strong>1 · Ecuador Horizon</strong><br><span style="color:var(--n-600)">Elegida. Legible a 32px.</span></p>
+      </div>
+      <div>
+        <div class="logo-box"><svg  alt="Concepto 2: Data Flow" style="width:140px" data-src="logo/logo-concept-2-data-flow.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- VOYAGO Logo Concept 2: "Data Flow" -->
+  <!-- Abstract representation of data flowing through a system (ERP) -->
+  <!-- Clean, technical, scalable -->
+
+  <defs>
+    <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="50%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Central hub (ERP core) -->
+  <circle cx="100" cy="100" r="28" fill="url(#nodeGradient)" filter="drop-shadow(0 4px 8px rgba(37,99,235,0.3))"/>
+
+  <!-- Inner pulse -->
+  <circle cx="100" cy="100" r="16" fill="none" stroke="url(#flowGradient)" stroke-width="2" stroke-dasharray="4 4">
+    <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Four module nodes (Facturación, Inventario, Contabilidad, RRHH) -->
+  <g fill="url(#nodeGradient)" filter="drop-shadow(0 2px 4px rgba(37,99,235,0.2))">
+    <!-- Top: Facturación -->
+    <circle cx="100" cy="36" r="18">
+      <animate attributeName="r" from="0" to="18" dur="0.5s" begin="0.2s" fill="freeze"/>
+    </circle>
+    <!-- Right: Inventario -->
+    <circle cx="164" cy="100" r="18">
+      <animate attributeName="r" from="0" to="18" dur="0.5s" begin="0.3s" fill="freeze"/>
+    </circle>
+    <!-- Bottom: Contabilidad -->
+    <circle cx="100" cy="164" r="18">
+      <animate attributeName="r" from="0" to="18" dur="0.5s" begin="0.4s" fill="freeze"/>
+    </circle>
+    <!-- Left: RRHH -->
+    <circle cx="36" cy="100" r="18">
+      <animate attributeName="r" from="0" to="18" dur="0.5s" begin="0.5s" fill="freeze"/>
+    </circle>
+  </g>
+
+  <!-- Data flows connecting hub to modules -->
+  <g stroke="url(#flowGradient)" stroke-width="4" stroke-linecap="round" fill="none" stroke-dasharray="8 4">
+    <path d="M100 64 V 54"><animate attributeName="stroke-dashoffset" from="12" to="0" dur="1s" begin="0.6s" repeatCount="indefinite"/></path>
+    <path d="M128 100 H 146"><animate attributeName="stroke-dashoffset" from="12" to="0" dur="1s" begin="0.7s" repeatCount="indefinite"/></path>
+    <path d="M100 136 V 146"><animate attributeName="stroke-dashoffset" from="12" to="0" dur="1s" begin="0.8s" repeatCount="indefinite"/></path>
+    <path d="M54 100 H 36"><animate attributeName="stroke-dashoffset" from="12" to="0" dur="1s" begin="0.9s" repeatCount="indefinite"/></path>
+  </g>
+
+  <!-- Module icons (simplified) -->
+  <g fill="white" font-size="10" text-anchor="middle" dominant-baseline="middle" font-family="system-ui, sans-serif" font-weight="bold">
+    <text x="100" y="37.5">📄</text>
+    <text x="164" y="101.5">📦</text>
+    <text x="100" y="165.5">💰</text>
+    <text x="36" y="101.5">👥</text>
+  </g>
+
+  <!-- Outer orbit particles (data points) -->
+  <g fill="url(#flowGradient)">
+    <circle cx="100" cy="16" r="4" opacity="0.6"><animate attributeName="opacity" from="0" to="0.6" dur="1s" begin="1s" repeatCount="indefinite"/></circle>
+    <circle cx="184" cy="100" r="4" opacity="0.6"><animate attributeName="opacity" from="0" to="0.6" dur="1s" begin="1.1s" repeatCount="indefinite"/></circle>
+    <circle cx="100" cy="184" r="4" opacity="0.6"><animate attributeName="opacity" from="0" to="0.6" dur="1s" begin="1.2s" repeatCount="indefinite"/></circle>
+    <circle cx="16" cy="100" r="4" opacity="0.6"><animate attributeName="opacity" from="0" to="0.6" dur="1s" begin="1.3s" repeatCount="indefinite"/></circle>
+  </g>
+</svg></div>
+        <p style="font-size:13px;margin-top:10px"><strong>2 · Data Flow</strong><br><span style="color:var(--n-600)">Hub con cuatro módulos.</span></p>
+      </div>
+      <div>
+        <div class="logo-box"><svg  alt="Concepto 3: wordmark" style="width:100%" data-src="logo/logo-concept-3-typographic.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <!-- VOYAGO Logo Concept 3: "Typographic Mark" -->
+  <!-- Wordmark-focused, clean, professional, highly legible -->
+  <!-- Uses Space Grotesk (display) + custom ligature for 'V' + 'O' -->
+
+  <defs>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="40%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Main wordmark -->
+  <text x="20" y="85" font-family="Space Grotesk, system-ui, sans-serif" font-size="72" font-weight="700" fill="url(#textGradient)" letter-spacing="-0.02em">
+    VOYAGO
+  </text>
+
+  <!-- Accent underline (equator line) -->
+  <path d="M20 90 Q200 85 380 90" stroke="url(#accentLine)" stroke-width="4" fill="none" stroke-linecap="round">
+    <animate attributeName="stroke-dashoffset" from="360" to="0" dur="1.5s" fill="freeze"/>
+  </path>
+
+  <!-- Small dot on the 'V' (location pin / equator marker) -->
+  <circle cx="38" cy="48" r="4" fill="#f97316">
+    <animate attributeName="r" from="0" to="4" dur="0.3s" begin="1.5s" fill="freeze"/>
+  </circle>
+
+  <!-- Tagline (optional) -->
+  <text x="20" y="110" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" font-weight="400" fill="#71717a" letter-spacing="0.05em" text-transform="uppercase">
+    ERP que habla ecuatoriano
+  </text>
+</svg></div>
+        <p style="font-size:13px;margin-top:10px"><strong>3 · Wordmark</strong><br><span style="color:var(--n-600)">Solo tipografía + línea.</span></p>
+      </div>
+    </div>
+    <div class="g g2" style="margin-top:16px">
+      <div class="logo-box dark"><svg  alt="Logo sobre fondo oscuro" style="width:120px" data-src="logo/logo-concept-1-equator.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- VOYAGO Logo Concept 1: "Ecuador Horizon" -->
+  <!-- Geometric representation of the equatorial line crossing a horizon -->
+  <!-- Primary color: #2563eb (primary-600) -->
+  <!-- Secondary: #16a34a (secondary-600) -->
+  <!-- Accent: #f97316 (accent-500) -->
+
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#1e40af" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="earthGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#15803d" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="sunGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle (optional, for avatar usage) -->
+  <circle cx="100" cy="100" r="96" fill="none" stroke="url(#skyGradient)" stroke-width="2"/>
+
+  <!-- Sky area (upper portion) -->
+  <path d="M20 100 Q100 40 180 100 L180 20 L20 20 Z" fill="url(#skyGradient)" opacity="0.9"/>
+
+  <!-- Equatorial line (the core concept) -->
+  <line x1="20" y1="100" x2="180" y2="100" stroke="#f97316" stroke-width="4" stroke-linecap="round">
+    <animate attributeName="stroke-dashoffset" from="160" to="0" dur="2s" fill="freeze"/>
+  </line>
+
+  <!-- Sun on the equator line -->
+  <circle cx="100" cy="100" r="24" fill="url(#sunGradient)">
+    <animate attributeName="r" from="0" to="24" dur="1.5s" begin="0.5s" fill="freeze"/>
+  </circle>
+
+  <!-- Sun rays -->
+  <g stroke="#f97316" stroke-width="2" stroke-linecap="round" opacity="0.7">
+    <line x1="100" y1="68" x2="100" y2="56"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="100" y1="132" x2="100" y2="144"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="68" y1="100" x2="56" y2="100"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="132" y1="100" x2="144" y2="100"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="76" y1="76" x2="66" y2="66"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="124" y1="76" x2="134" y2="66"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="76" y1="124" x2="66" y2="134"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="124" y1="124" x2="134" y2="134"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+  </g>
+
+  <!-- Earth/Mountain base (lower portion) -->
+  <path d="M20 100 Q100 160 180 100 L180 180 L20 180 Z" fill="url(#earthGradient)" opacity="0.9"/>
+
+  <!-- Data points flowing along equator (tech feel) -->
+  <g fill="#f97316" opacity="0.8">
+    <circle cx="40" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.5s" fill="freeze"/></circle>
+    <circle cx="70" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.6s" fill="freeze"/></circle>
+    <circle cx="130" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.7s" fill="freeze"/></circle>
+    <circle cx="160" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.8s" fill="freeze"/></circle>
+  </g>
+
+  <!-- Subtle arrowheads on equator line (direction/flow) -->
+  <g fill="#f97316" opacity="0.6">
+    <polygon points="55,95 55,105 65,100"><animate attributeName="opacity" from="0" to="0.6" dur="0.5s" begin="2s" fill="freeze"/></polygon>
+    <polygon points="135,95 135,105 145,100"><animate attributeName="opacity" from="0" to="0.6" dur="0.5s" begin="2.1s" fill="freeze"/></polygon>
+  </g>
+</svg></div>
+      <div class="logo-box"><svg  alt="Logo tamaño favicon" style="width:32px" data-src="logo/logo-concept-1-equator.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- VOYAGO Logo Concept 1: "Ecuador Horizon" -->
+  <!-- Geometric representation of the equatorial line crossing a horizon -->
+  <!-- Primary color: #2563eb (primary-600) -->
+  <!-- Secondary: #16a34a (secondary-600) -->
+  <!-- Accent: #f97316 (accent-500) -->
+
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#1e40af" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="earthGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#15803d" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="sunGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle (optional, for avatar usage) -->
+  <circle cx="100" cy="100" r="96" fill="none" stroke="url(#skyGradient)" stroke-width="2"/>
+
+  <!-- Sky area (upper portion) -->
+  <path d="M20 100 Q100 40 180 100 L180 20 L20 20 Z" fill="url(#skyGradient)" opacity="0.9"/>
+
+  <!-- Equatorial line (the core concept) -->
+  <line x1="20" y1="100" x2="180" y2="100" stroke="#f97316" stroke-width="4" stroke-linecap="round">
+    <animate attributeName="stroke-dashoffset" from="160" to="0" dur="2s" fill="freeze"/>
+  </line>
+
+  <!-- Sun on the equator line -->
+  <circle cx="100" cy="100" r="24" fill="url(#sunGradient)">
+    <animate attributeName="r" from="0" to="24" dur="1.5s" begin="0.5s" fill="freeze"/>
+  </circle>
+
+  <!-- Sun rays -->
+  <g stroke="#f97316" stroke-width="2" stroke-linecap="round" opacity="0.7">
+    <line x1="100" y1="68" x2="100" y2="56"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="100" y1="132" x2="100" y2="144"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="68" y1="100" x2="56" y2="100"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="132" y1="100" x2="144" y2="100"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="76" y1="76" x2="66" y2="66"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="124" y1="76" x2="134" y2="66"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="76" y1="124" x2="66" y2="134"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+    <line x1="124" y1="124" x2="134" y2="134"><animate attributeName="opacity" from="0" to="0.7" dur="1s" begin="1s" fill="freeze"/></line>
+  </g>
+
+  <!-- Earth/Mountain base (lower portion) -->
+  <path d="M20 100 Q100 160 180 100 L180 180 L20 180 Z" fill="url(#earthGradient)" opacity="0.9"/>
+
+  <!-- Data points flowing along equator (tech feel) -->
+  <g fill="#f97316" opacity="0.8">
+    <circle cx="40" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.5s" fill="freeze"/></circle>
+    <circle cx="70" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.6s" fill="freeze"/></circle>
+    <circle cx="130" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.7s" fill="freeze"/></circle>
+    <circle cx="160" cy="100" r="3"><animate attributeName="opacity" from="0" to="0.8" dur="0.5s" begin="1.8s" fill="freeze"/></circle>
+  </g>
+
+  <!-- Subtle arrowheads on equator line (direction/flow) -->
+  <g fill="#f97316" opacity="0.6">
+    <polygon points="55,95 55,105 65,100"><animate attributeName="opacity" from="0" to="0.6" dur="0.5s" begin="2s" fill="freeze"/></polygon>
+    <polygon points="135,95 135,105 145,100"><animate attributeName="opacity" from="0" to="0.6" dur="0.5s" begin="2.1s" fill="freeze"/></polygon>
+  </g>
+</svg></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">02 · Color</div>
+    <h2>Paleta Ecuador Horizon</h2>
+    <p class="lead">Azul de confianza técnica, verde de validación SRI, naranja de sol ecuatoriano. El naranja se usa en tres lugares y en ningún otro.</p>
+    <div class="g g6">
+      <div class="sw"><div class="chip" style="background:#2563eb"></div><div class="meta"><div class="name">Primary 600</div><div class="hex">#2563eb</div></div></div>
+      <div class="sw"><div class="chip" style="background:#1d4ed8"></div><div class="meta"><div class="name">Primary 700</div><div class="hex">#1d4ed8</div></div></div>
+      <div class="sw"><div class="chip" style="background:#1e40af"></div><div class="meta"><div class="name">Primary 800</div><div class="hex">#1e40af</div></div></div>
+      <div class="sw"><div class="chip" style="background:#16a34a"></div><div class="meta"><div class="name">Secondary 600</div><div class="hex">#16a34a</div></div></div>
+      <div class="sw"><div class="chip" style="background:#15803d"></div><div class="meta"><div class="name">Secondary 700</div><div class="hex">#15803d</div></div></div>
+      <div class="sw"><div class="chip" style="background:#f97316"></div><div class="meta"><div class="name">Accent 500</div><div class="hex">#f97316</div></div></div>
+      <div class="sw"><div class="chip" style="background:#fafafa"></div><div class="meta"><div class="name">Neutral 50</div><div class="hex">#fafafa</div></div></div>
+      <div class="sw"><div class="chip" style="background:#e4e4e7"></div><div class="meta"><div class="name">Neutral 200</div><div class="hex">#e4e4e7</div></div></div>
+      <div class="sw"><div class="chip" style="background:#52525b"></div><div class="meta"><div class="name">Neutral 600</div><div class="hex">#52525b</div></div></div>
+      <div class="sw"><div class="chip" style="background:#18181b"></div><div class="meta"><div class="name">Neutral 900</div><div class="hex">#18181b</div></div></div>
+      <div class="sw"><div class="chip" style="background:#09090b"></div><div class="meta"><div class="name">Neutral 950</div><div class="hex">#09090b</div></div></div>
+      <div class="sw"><div class="chip" style="background:#dc2626"></div><div class="meta"><div class="name">Error</div><div class="hex">#dc2626</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">03 · Tipografía</div>
+    <h2>Space Grotesk + IBM Plex</h2>
+    <p class="lead">Display geométrico para titulares, Plex Sans para interfaz, Plex Mono para todo número que deba cuadrar: RUC, comprobantes y montos.</p>
+    <div class="typerow"><span class="tag">display-2xl</span><span class="d2xl">Factura autorizada en 3 segundos</span></div>
+    <div class="typerow"><span class="tag">display-xl</span><span class="dxl">Tu contador lo va a entender</span></div>
+    <div class="typerow"><span class="tag">display-lg</span><span class="dlg">Inventario multi-bodega</span></div>
+    <div class="typerow"><span class="tag">display-md</span><span class="dmd">Últimas facturas emitidas</span></div>
+    <div class="typerow"><span class="tag">body-lg</span><span class="blg">Validación de RUC en vivo contra el SRI, sin salir del formulario.</span></div>
+    <div class="typerow"><span class="tag">body-sm</span><span class="bsm">El comprobante se envía automáticamente al correo del cliente.</span></div>
+    <div class="typerow"><span class="tag">code-md</span><span class="mono">FAC-001-00001247 · RUC 1792345678001 · $12,450.00</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">04 · Iconografía</div>
+    <h2>Set propio 24×24</h2>
+    <p class="lead">Trazo 2px, esquinas redondeadas. Cubre lo que Lucide no resuelve bien: RUC, SRI, retención y los cinco módulos.</p>
+    <div class="icongrid">
+      <div class="icon-cell"><svg width="24" height="24"  alt="" data-src="icons/invoice.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Factura / Comprobante -->
+  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+  <polyline points="14 2 14 8 20 8"/>
+  <line x1="16" y1="13" x2="8" y2="13"/>
+  <line x1="16" y1="17" x2="8" y2="17"/>
+  <polyline points="10 9 9 9 8 9"/>
+</svg><span>Factura</span></div>
+      <div class="icon-cell"><svg width="24" height="24"  alt="" data-src="icons/ruc.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- RUC / Identificación tributaria -->
+  <rect x="2" y="4" width="20" height="16" rx="2"/>
+  <line x1="6" y1="8" x2="18" y2="8"/>
+  <line x1="6" y1="12" x2="14" y2="12"/>
+  <line x1="6" y1="16" x2="16" y2="16"/>
+  <circle cx="18" cy="14" r="2" fill="currentColor"/>
+</svg><span>RUC</span></div>
+      <div class="icon-cell"><svg width="24" height="24"  alt="" data-src="icons/sri.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- SRI / Servicio de Rentas Internas -->
+  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+  <path d="M2 17l10 5 10-5"/>
+  <path d="M2 12l10 5 10-5"/>
+  <line x1="12" y1="22" x2="12" y2="12"/>
+  <circle cx="12" cy="12" r="3" fill="currentColor"/>
+</svg><span>SRI</span></div>
+      <div class="icon-cell"><svg width="24" height="24"  alt="" data-src="icons/comprobante.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Comprobante electrónico -->
+  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+  <polyline points="14 2 14 8 20 8"/>
+  <path d="M16 13H8"/>
+  <path d="M16 17H8"/>
+  <path d="M10 9H9"/>
+  <circle cx="17" cy="17" r="3" fill="currentColor" opacity="0.3"/>
+  <path d="M16 16l2 2" stroke="currentColor" stroke-width="1.5"/>
+</svg><span>Comprobante</span></div>
+      <div class="icon-cell"><svg width="24" height="24"  alt="" data-src="icons/retencion.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Retención / Impuestos -->
+  <path d="M21 12V7H5v5"/>
+  <path d="M21 19V14H5v5"/>
+  <line x1="12" y1="2" x2="12" y2="22"/>
+  <line x1="2" y1="12" x2="22" y2="12"/>
+  <circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.3"/>
+</svg><span>Retención</span></div>
+      <div class="icon-cell"><svg width="24" height="24"  alt="" data-src="icons/empresa-usuario.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Empresa / Usuario corporativo -->
+  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+  <circle cx="9" cy="7" r="4"/>
+  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+</svg><span>Empresa</span></div>
+      <div class="icon-cell"><svg width="24" height="24"  alt="" data-src="icons/modulo-contabilidad.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Contabilidad / Libro mayor -->
+  <path d="M4 6h16"/>
+  <path d="M4 12h16"/>
+  <path d="M4 18h16"/>
+  <line x1="8" y1="2" x2="8" y2="22"/>
+  <line x1="16" y1="2" x2="16" y2="22"/>
+  <circle cx="12" cy="9" r="2" fill="currentColor" opacity="0.3"/>
+  <circle cx="12" cy="15" r="2" fill="currentColor" opacity="0.3"/>
+</svg><span>Contabilidad</span></div>
+      <div class="icon-cell"><svg width="24" height="24"  alt="" data-src="icons/modulo-inventario.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Inventario / Cajas -->
+  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+  <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+  <line x1="12" y1="22.08" x2="12" y2="12"/>
+</svg><span>Inventario</span></div>
+      <div class="icon-cell"><svg width="24" height="24"  alt="" data-src="icons/modulo-rrhh.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- RRHH / Personas -->
+  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+  <circle cx="9" cy="7" r="4"/>
+  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+  <path d="M21 16a5 5 0 0 0-4-4.5"/>
+</svg><span>RRHH</span></div>
+      <div class="icon-cell"><svg width="24" height="24"  alt="" data-src="icons/modulo-crm.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- CRM / Clientes / Relaciones -->
+  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+  <circle cx="12" cy="10" r="3" fill="currentColor" opacity="0.3"/>
+  <path d="M12 14v4"/>
+  <path d="M10 16h4"/>
+</svg><span>CRM</span></div>
+      <div class="icon-cell"><svg width="24" height="24"  alt="" data-src="icons/dashboard.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Dashboard / Panel principal -->
+  <rect x="3" y="3" width="7" height="7" rx="1"/>
+  <rect x="14" y="3" width="7" height="7" rx="1"/>
+  <rect x="3" y="14" width="7" height="7" rx="1"/>
+  <rect x="14" y="14" width="7" height="7" rx="1"/>
+  <line x1="6.5" y1="6.5" x2="8.5" y2="4.5" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+  <line x1="17.5" y1="6.5" x2="19.5" y2="4.5" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+  <line x1="6.5" y1="17.5" x2="8.5" y2="19.5" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+  <line x1="17.5" y1="17.5" x2="19.5" y2="19.5" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+</svg><span>Dashboard</span></div>
+      <div class="icon-cell"><svg width="24" height="24"  alt="" data-src="icons/settings.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Configuración / Ajustes -->
+  <circle cx="12" cy="12" r="3"/>
+  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+</svg><span>Ajustes</span></div>
+      <div class="icon-cell"><svg width="24" height="24"  alt="" data-src="icons/users.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Usuarios / Equipo -->
+  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+  <circle cx="9" cy="7" r="4"/>
+  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+</svg><span>Usuarios</span></div>
+      <div class="icon-cell"><svg width="24" height="24"  alt="" data-src="icons/chart.svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Gráficos / Estadísticas -->
+  <line x1="18" y1="20" x2="18" y2="10"/>
+  <line x1="12" y1="20" x2="12" y2="4"/>
+  <line x1="6" y1="20" x2="6" y2="16"/>
+</svg><span>Reportes</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">05 · Componentes</div>
+    <h2>Estados base</h2>
+    <p class="lead">Botones, badges de comprobante y tabla de facturas con montos monoespaciados alineados a la derecha.</p>
+
+    <div class="btnrow" style="margin-bottom:20px">
+      <button class="btn b-primary">Nueva factura</button>
+      <button class="btn b-secondary">Exportar</button>
+      <button class="btn b-ghost">Cancelar</button>
+      <button class="btn b-danger">Anular</button>
+    </div>
+
+    <div class="badges" style="margin-bottom:32px">
+      <span class="badge bd-ok"><i></i>Autorizado</span>
+      <span class="badge bd-warn"><i></i>En proceso</span>
+      <span class="badge bd-err"><i></i>Rechazado</span>
+      <span class="badge bd-neutral"><i></i>Anulado</span>
+    </div>
+
+    <table>
+      <thead><tr><th>Comprobante</th><th>Cliente</th><th>Fecha</th><th style="text-align:right">Total</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td class="id">FAC-001-00001247</td><td>Constructora Andes S.A.</td><td>15/01/2026</td><td class="num">$12,450.00</td><td><span class="badge bd-ok"><i></i>Autorizado</span></td></tr>
+        <tr><td class="id">FAC-001-00001246</td><td>Distribuidora Costa S.A.</td><td>14/01/2026</td><td class="num">$8,720.50</td><td><span class="badge bd-ok"><i></i>Autorizado</span></td></tr>
+        <tr><td class="id">NCR-001-00000089</td><td>Servicios Médicos Quito</td><td>14/01/2026</td><td class="num">$3,100.00</td><td><span class="badge bd-warn"><i></i>En proceso</span></td></tr>
+        <tr><td class="id">FAC-001-00001245</td><td>Importadora Pacífico</td><td>13/01/2026</td><td class="num">$45,800.00</td><td><span class="badge bd-ok"><i></i>Autorizado</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">06 · Reglas</div>
+    <h2>Lo que no se hace</h2>
+    <div class="g g2">
+      <div class="card"><h4>Sin clichés andinos</h4><p>Ni banderas, ni cóndores, ni sombreros, ni llamas. La identidad es técnica, no costumbrista.</p></div>
+      <div class="card"><h4>Sin stock photos</h4><p>Nada de gente de negocios sonriendo frente a una laptop. Captura real del producto o ilustración geométrica.</p></div>
+      <div class="card"><h4>Sin azul genérico</h4><p>Nada de #0066FF ni #003399. El azul de marca es #2563eb y punto.</p></div>
+      <div class="card"><h4>Sin gradientes de moda</h4><p>Morado→rosa y teal→morado quedan fuera. Si hay degradado, sale de la paleta y tiene función.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    VOYAGO Brand System v1.0 · Tokens en <code>tokens/</code> · Componentes en <code>components/</code> · Brief para IA en <code>AI-BRIEF.md</code>
+  </div>
+</footer>
+
+</body>
+</html>
