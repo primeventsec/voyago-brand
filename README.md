@@ -15,6 +15,7 @@ los valores están en archivos, no en la cabeza de nadie.
 | **Diseñador** | [`guidelines.md`](./guidelines.md) y [`showcase.html`](./showcase.html) |
 | **Desarrollador** | [`tailwind.config.ts`](./tailwind.config.ts) y [`tokens/tokens.css`](./tokens/tokens.css) |
 | **Buscas el prompt exacto para una herramienta** | [`HANDOFF-PROMPTS.md`](./HANDOFF-PROMPTS.md) |
+| **Quieres saber qué se aplicó en la app real** | [`INTEGRACION.md`](./INTEGRACION.md) |
 
 ---
 
